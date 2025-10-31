@@ -1,0 +1,16 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/12.0.0/data-class.json",
+  "simpleName" : "PaymentDemoData",
+  "namespace" : "com.axonivy.market.my.product.name.demo.PaymentDemo",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "quantity",
+    "type" : "Number"
+  }, {
+    "name" : "name",
+    "type" : "String"
+  }, {
+    "name" : "price",
+    "type" : "Number"
+  } ]
+}

@@ -1,0 +1,56 @@
+body.light button.action-button {
+  background: #E7E7E7;
+  color: #1B1B1B;
+  border: 1px solid #E7E7E7;
+  width: 9rem;
+}
+
+body.light button.action-button.ui-state-hover {
+  background: #BFBFBF;
+  border: 1px solid #BFBFBF;
+}
+
+body.light button.action-button.ui-state-focus {
+  box-shadow: 0 0 0 1px #BFBFBF;
+}
+
+h3 {
+  margin: 0px;
+}
+
+.segment {
+  flex: 1;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.process-mining-viewer-group .ui-accordion-content.ui-widget-content,
+.case-process-viewer,
+.case-process-viewer-container .ui-panel-content.ui-widget-content,
+.viewer-group .ui-panel-content.ui-widget-content {
+  padding: 0;
+  margin: 0;
+}
+
+.viewer-group {
+  width: 100%;
+  border-bottom: .5rem solid var(--surface-border);
+  border-radius: 0 0 .5rem .5rem;
+}
+
+.case-process-viewer {
+  border: none;
+  border-color: transparent;
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  min-height: 400px;
+}
+
+.toolbar-overlay-panel {
+  min-width: 300px;
+}
+
+.ui-resizable-proxy {
+   border: 2px dotted #00F;
+}

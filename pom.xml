@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.axonivy.connector.case process viewer</groupId>
+  <groupId>com.axonivy.solutions.caseprocessviewer</groupId>
   <name>case-process-viewer</name>
   <artifactId>case-process-viewer-modules</artifactId>
   <version>12.0.9-SNAPSHOT</version>
@@ -8,6 +8,7 @@
 
   <modules>
     <module>${project.name}</module>
+    <module>${project.name}-core</module>
     <module>${project.name}-demo</module>
     <module>${project.name}-test</module>
     <module>${project.name}-product</module>

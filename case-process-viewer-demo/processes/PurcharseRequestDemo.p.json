@@ -1,0 +1,365 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/process/12.0.0/process.json",
+  "id" : "199DB82E409AE3B0",
+  "config" : {
+    "data" : "com.axonivy.market.my.product.name.demo.CaseProcessViewerDemoData"
+  },
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "RequestStart",
+      "name" : "Purchase request",
+      "config" : {
+        "signature" : "start",
+        "request" : {
+          "name" : "Create Purchase Request"
+        },
+        "task" : {
+          "name" : "Init"
+        },
+        "case" : {
+          "name" : "Purchase Request"
+        }
+      },
+      "tags" : [
+        "demo"
+      ],
+      "visual" : {
+        "at" : { "x" : 96, "y" : 64 }
+      },
+      "connect" : [
+        { "id" : "f7", "to" : "S10" }
+      ]
+    }, {
+      "id" : "f1",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 880, "y" : 64 },
+        "labelOffset" : { "x" : 13, "y" : 33 }
+      }
+    }, {
+      "id" : "f4",
+      "type" : "Alternative",
+      "name" : "Approved?",
+      "config" : {
+        "conditions" : {
+          "f6" : "in.isApproved"
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 544, "y" : 64 },
+        "labelOffset" : { "y" : -16 }
+      },
+      "connect" : [
+        { "id" : "f6", "to" : "S40", "label" : {
+            "name" : "Yes",
+            "offset" : { "x" : -15, "y" : -3 }
+          } },
+        { "id" : "f5", "to" : "f14", "label" : {
+            "name" : "No",
+            "offset" : { "x" : 1, "y" : 14 }
+          }, "color" : "default" }
+      ]
+    }, {
+      "id" : "S20",
+      "type" : "UserBpmnElement",
+      "name" : "Approval",
+      "elements" : [ {
+          "id" : "S20-f6",
+          "type" : "TaskSwitchEvent",
+          "name" : "Approval",
+          "config" : {
+            "task" : {
+              "name" : "Approval"
+            }
+          },
+          "visual" : {
+            "at" : { "x" : 152, "y" : 160 },
+            "labelOffset" : { "x" : 14, "y" : 34 }
+          },
+          "connect" : [
+            { "id" : "S20-f9", "to" : "S20-f10", "color" : "default" }
+          ]
+        }, {
+          "id" : "S20-f10",
+          "type" : "DialogCall",
+          "name" : "Approval UI",
+          "config" : {
+            "dialog" : "com.axonivy.market.my.product.name.demo.PurchaseRequestApprovalDemo:start(String,Number,Number)",
+            "call" : {
+              "map" : {
+                "param.name" : "in.productName",
+                "param.price" : "in.price",
+                "param.quantity" : "in.quantity"
+              }
+            },
+            "output" : {
+              "map" : {
+                "out" : "in",
+                "out.isApproved" : "result.isApproved",
+                "out.price" : "result.price",
+                "out.productName" : "result.name",
+                "out.quantity" : "result.quantity"
+              }
+            }
+          },
+          "visual" : {
+            "at" : { "x" : 280, "y" : 160 }
+          },
+          "connect" : [
+            { "id" : "S20-f1", "to" : "S20-g1" }
+          ]
+        }, {
+          "id" : "S20-g0",
+          "type" : "EmbeddedStart",
+          "name" : "in 1",
+          "visual" : {
+            "at" : { "x" : 64, "y" : 160 },
+            "labelOffset" : { "x" : 3, "y" : 23 }
+          },
+          "parentConnector" : "f2",
+          "connect" : [
+            { "id" : "S20-f0", "to" : "S20-f6" }
+          ]
+        }, {
+          "id" : "S20-g1",
+          "type" : "EmbeddedEnd",
+          "name" : "out 1",
+          "visual" : {
+            "at" : { "x" : 416, "y" : 160 },
+            "labelOffset" : { "x" : 3, "y" : 23 }
+          },
+          "parentConnector" : "f3"
+        }, {
+          "id" : "S20-g2",
+          "type" : "EmbeddedEnd",
+          "visual" : {
+            "at" : { "x" : 416, "y" : 160 },
+            "labelOffset" : { "x" : 3, "y" : 23 }
+          }
+        } ],
+      "visual" : {
+        "at" : { "x" : 408, "y" : 64 }
+      },
+      "connect" : [
+        { "id" : "f3", "to" : "f4" }
+      ]
+    }, {
+      "id" : "S10",
+      "type" : "UserBpmnElement",
+      "name" : "Purchase Request",
+      "elements" : [ {
+          "id" : "S10-f3",
+          "type" : "TaskSwitchEvent",
+          "name" : "Purchase Request",
+          "config" : {
+            "task" : {
+              "name" : "Purchase Request"
+            }
+          },
+          "visual" : {
+            "at" : { "x" : 152, "y" : 160 },
+            "labelOffset" : { "x" : 14, "y" : 34 }
+          },
+          "connect" : [
+            { "id" : "S10-f4", "to" : "S10-f13" }
+          ]
+        }, {
+          "id" : "S10-f13",
+          "type" : "DialogCall",
+          "name" : "Purchase request UI",
+          "config" : {
+            "dialog" : "com.axonivy.market.my.product.name.demo.PurchaseRequestDemo:start()",
+            "output" : {
+              "map" : {
+                "out" : "in",
+                "out.price" : "result.price",
+                "out.productName" : "result.name",
+                "out.quantity" : "result.quantity"
+              }
+            }
+          },
+          "visual" : {
+            "at" : { "x" : 288, "y" : 160 }
+          },
+          "connect" : [
+            { "id" : "S10-f1", "to" : "S10-g1" }
+          ]
+        }, {
+          "id" : "S10-g0",
+          "type" : "EmbeddedStart",
+          "name" : "in 1",
+          "visual" : {
+            "at" : { "x" : 64, "y" : 160 },
+            "labelOffset" : { "x" : 3, "y" : 23 }
+          },
+          "parentConnector" : "f7",
+          "connect" : [
+            { "id" : "S10-f0", "to" : "S10-f3" }
+          ]
+        }, {
+          "id" : "S10-g1",
+          "type" : "EmbeddedEnd",
+          "name" : "out 1",
+          "visual" : {
+            "at" : { "x" : 416, "y" : 160 },
+            "labelOffset" : { "x" : 3, "y" : 23 }
+          },
+          "parentConnector" : "f2"
+        } ],
+      "visual" : {
+        "at" : { "x" : 232, "y" : 64 }
+      },
+      "connect" : [
+        { "id" : "f2", "to" : "S20" }
+      ]
+    }, {
+      "id" : "S30",
+      "type" : "ServiceBpmnElement",
+      "name" : "Payment Processing",
+      "elements" : [ {
+          "id" : "S30-g0",
+          "type" : "EmbeddedStart",
+          "visual" : {
+            "at" : { "x" : 64, "y" : 256 },
+            "labelOffset" : { "x" : 3, "y" : 23 }
+          },
+          "parentConnector" : "f8",
+          "connect" : [
+            { "id" : "S30-f0", "to" : "S30-f3" }
+          ]
+        }, {
+          "id" : "S30-g1",
+          "type" : "EmbeddedEnd",
+          "visual" : {
+            "at" : { "x" : 480, "y" : 256 },
+            "labelOffset" : { "x" : 3, "y" : 23 }
+          },
+          "parentConnector" : "f12"
+        }, {
+          "id" : "S30-f1",
+          "type" : "SubProcessCall",
+          "name" : "Call Payment Processing",
+          "config" : {
+            "processCall" : "PaymentProcessingDemo:call()"
+          },
+          "visual" : {
+            "at" : { "x" : 352, "y" : 256 }
+          },
+          "connect" : [
+            { "id" : "S30-f2", "to" : "S30-g1", "color" : "default" }
+          ]
+        }, {
+          "id" : "S30-f3",
+          "type" : "Script",
+          "name" : "Processing",
+          "visual" : {
+            "at" : { "x" : 192, "y" : 256 }
+          },
+          "connect" : [
+            { "id" : "S30-f4", "to" : "S30-f1", "color" : "default" }
+          ]
+        } ],
+      "visual" : {
+        "at" : { "x" : 736, "y" : 192 }
+      },
+      "connect" : [
+        { "id" : "f12", "to" : "f14", "color" : "default" }
+      ]
+    }, {
+      "id" : "S40",
+      "type" : "UserBpmnElement",
+      "name" : "Payment",
+      "elements" : [ {
+          "id" : "S40-g0",
+          "type" : "EmbeddedStart",
+          "visual" : {
+            "at" : { "x" : 320, "y" : 64 },
+            "labelOffset" : { "x" : 3, "y" : 23 }
+          },
+          "parentConnector" : "f6",
+          "connect" : [
+            { "id" : "S40-f0", "to" : "S40-f3" }
+          ]
+        }, {
+          "id" : "S40-g1",
+          "type" : "EmbeddedEnd",
+          "visual" : {
+            "at" : { "x" : 672, "y" : 64 },
+            "labelOffset" : { "x" : 3, "y" : 23 }
+          },
+          "parentConnector" : "f8"
+        }, {
+          "id" : "S40-f1",
+          "type" : "DialogCall",
+          "name" : "Payment",
+          "config" : {
+            "dialog" : "com.axonivy.market.my.product.name.demo.PaymentDemo:start(String,Number,Number)",
+            "call" : {
+              "map" : {
+                "param.name" : "in.productName",
+                "param.price" : "in.price",
+                "param.quantity" : "in.quantity"
+              }
+            },
+            "output" : {
+              "map" : {
+                "out" : "in",
+                "out.isPaid" : "true"
+              }
+            }
+          },
+          "visual" : {
+            "at" : { "x" : 544, "y" : 64 }
+          },
+          "connect" : [
+            { "id" : "S40-f2", "to" : "S40-g1", "color" : "default" }
+          ]
+        }, {
+          "id" : "S40-f3",
+          "type" : "TaskSwitchEvent",
+          "name" : "Payment",
+          "config" : {
+            "task" : {
+              "name" : "Payment"
+            }
+          },
+          "visual" : {
+            "at" : { "x" : 416, "y" : 64 },
+            "labelOffset" : { "x" : 14, "y" : 34 }
+          },
+          "connect" : [
+            { "id" : "S40-f4", "to" : "S40-f1", "color" : "default" }
+          ]
+        } ],
+      "visual" : {
+        "at" : { "x" : 544, "y" : 192 }
+      },
+      "connect" : [
+        { "id" : "f8", "to" : "S30" }
+      ]
+    }, {
+      "id" : "f14",
+      "type" : "UserTask",
+      "name" : "Summary",
+      "config" : {
+        "dialog" : "com.axonivy.market.my.product.name.demo.SummaryDemo:start(String,Number,Number,Boolean)",
+        "call" : {
+          "map" : {
+            "param.name" : "in.productName",
+            "param.price" : "in.price",
+            "param.quantity" : "in.quantity",
+            "param.isPaid" : "in.isPaid"
+          }
+        },
+        "task" : {
+          "name" : "Summary"
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 736, "y" : 64 }
+      },
+      "connect" : [
+        { "id" : "f15", "to" : "f1", "color" : "default" }
+      ]
+    } ]
+}

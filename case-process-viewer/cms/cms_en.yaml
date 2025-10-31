@@ -1,0 +1,9 @@
+Dialogs:
+  com:
+    axonivy:
+      solutions:
+        caseprocessviewer:
+          component:
+            ProcessViewer:
+              CaseProcessViewer: Case Process Viewer
+              ResizeTooltip: You can mouse hover to the bottom edge of panel to resize this frame

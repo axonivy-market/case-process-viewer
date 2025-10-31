@@ -1,0 +1,8 @@
+Processes:
+  Process:
+    PaymentProcessingDemo:
+      description: Automatisches Demoprojekt für Prozessanalysator
+      name: Automatische Hotelbuchung
+    PurcharseRequestDemo:
+      description: Demo-Projekt für Fallanalysator
+      name: Fallanalysator-Demo

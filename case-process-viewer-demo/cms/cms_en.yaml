@@ -1,0 +1,8 @@
+Processes:
+  Process:
+    PaymentProcessingDemo:
+      description: Automatic demo project for process analyser
+      name: Automatic Hotel Booking
+    PurcharseRequestDemo:
+      description: Demo project for case analyser
+      name: Case Analyser Demo

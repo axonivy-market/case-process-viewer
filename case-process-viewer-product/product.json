@@ -6,7 +6,7 @@
       "data": {
         "projects": [
           {
-            "groupId": "com.axonivy.connector.case process viewer",
+            "groupId": "com.axonivy.solutions.caseprocessviewer",
             "artifactId": "case-process-viewer-demo",
             "version": "${version}",
             "type": "iar"
@@ -28,31 +28,10 @@
       "data": {
         "dependencies": [
           {
-            "groupId": "com.axonivy.connector.case process viewer",
+            "groupId": "com.axonivy.solutions.caseprocessviewer",
             "artifactId": "case-process-viewer",
             "version": "${version}",
             "type": "iar"
-          }
-        ],
-        "repositories": [
-          {
-            "id": "maven.axonivy.com",
-            "url": "https://maven.axonivy.com",
-            "snapshots": {
-              "enabled": "true"
-            }
-          }
-        ]
-      }
-    }, 
-    {
-      "id": "maven-dropins",
-      "data": {
-        "dependencies": [
-          {
-            "groupId": "com.axonivy.connector.case process viewer",
-            "artifactId": "case-process-viewer",
-            "version": "${version}"
           }
         ],
         "repositories": [
