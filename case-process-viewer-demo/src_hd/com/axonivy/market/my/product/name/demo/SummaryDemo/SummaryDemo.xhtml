@@ -7,10 +7,10 @@
   xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
   <ui:composition template="/layouts/frame-10-full-width.xhtml">
-    <ui:define name="title">Payment</ui:define>
+    <ui:define name="title">Summary</ui:define>
     <ui:define name="content">
 
-      <h3>Payment</h3>
+      <h3>Summary</h3>
 
       <h:form id="form">
         <p:messages />
@@ -18,25 +18,34 @@
           styleClass="ui-panelgrid-blank ui-fluid"
           columnClasses="ui-g-12 ui-md-3 ui-lg-2, ui-g-12 ui-md-9 ui-lg-2, ui-g-12 ui-md-3 ui-lg-4, ui-g-12 ui-md-9 ui-lg-4">
 
-          <p:outputLabel for="@next" value="Product Name:" />
+
+        </p:panelGrid>
+
+
+        <p:panelGrid columns="3" layout="grid"
+          styleClass="ui-panelgrid-blank ui-fluid"
+          columnClasses="ui-g-12 ui-md-4 ui-lg-4 py-0 pl-0, ui-g-12 ui-md-4 ui-lg-4 py-0, ui-g-12 ui-md-4 ui-lg-4 py-0 pr-0">
+
+          <p:outputLabel for="product-name" value="Product Name" />
+          <p:outputLabel for="product-price" value="Product Price" />
+          <p:outputLabel for="product-quantity" value="Product Quantity" />
+
           <p:inputText id="product-name" value="#{data.name}"
-            disabled="true">
-          </p:inputText>
-
-          <p:outputLabel for="@next" value="Product Price:" />
+            disabled="true" />
           <p:inputNumber id="product-price" decimalPlaces="0"
-            minValue="0" value="#{data.price}" maxValue="1000000"
-            disabled="true">
-          </p:inputNumber>
+            symbol=" $" symbolPosition="s" decimalSeparator="."
+            thousandSeparator="," minValue="0" value="#{data.price}"
+            maxValue="1000000" disabled="true" />
 
-          <p:outputLabel for="@next" value="Product Quantity:" />
           <p:inputNumber id="product-quantity" decimalPlaces="0"
-            minValue="0" value="#{data.quantity}" maxValue="1000000"
-            disabled="true">
-          </p:inputNumber>
-          
-          <p:outputLabel for="@next" value="Payment status:" />
-          <p:selectBooleanCheckbox value="#{data.isPaid}" disabled="true"/>
+            minValue="0" value="#{data.quantity}" maxValue="10000"
+            disabled="true" />
+
+          <p:outputLabel for="payment-status" value="Payment status" />
+          <p:outputLabel />
+          <p:outputLabel />
+          <p:selectBooleanCheckbox id="payment-status"
+            value="#{data.isPaid}" disabled="true" />
         </p:panelGrid>
 
         <ic:com.axonivy.solutions.caseprocessviewer.component.ProcessViewer />
