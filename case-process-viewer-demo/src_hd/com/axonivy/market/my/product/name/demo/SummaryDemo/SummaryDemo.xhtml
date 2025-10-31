@@ -14,13 +14,14 @@
 
       <h:form id="form">
         <p:messages />
-        <p:panelGrid columns="3" layout="grid"
+        <p:panelGrid columns="4" layout="grid"
           styleClass="ui-panelgrid-blank ui-fluid"
-          columnClasses="ui-g-12 ui-md-4 ui-lg-4 py-0 pl-0, ui-g-12 ui-md-4 ui-lg-4 py-0, ui-g-12 ui-md-4 ui-lg-4 py-0 pr-0">
+          columnClasses="ui-g-12 ui-md-3 ui-lg-3 py-0 pl-0, ui-g-12 ui-md-3 ui-lg-3 py-0, ui-g-12 ui-md-3 ui-lg-3 py-0, ui-g-12 ui-md-3 ui-lg-3 py-0 pr-0">
 
           <p:outputLabel for="product-name" value="Product Name" />
           <p:outputLabel for="product-price" value="Product Price" />
           <p:outputLabel for="product-quantity" value="Product Quantity" />
+          <p:outputLabel for="payment-status" value="Payment status" />
 
           <p:inputText id="product-name" value="#{data.name}"
             disabled="true" />
@@ -28,14 +29,9 @@
             symbol=" $" symbolPosition="s" decimalSeparator="."
             thousandSeparator="," minValue="0" value="#{data.price}"
             maxValue="1000000" disabled="true" />
-
           <p:inputNumber id="product-quantity" decimalPlaces="0"
             minValue="0" value="#{data.quantity}" maxValue="10000"
             disabled="true" />
-
-          <p:outputLabel for="payment-status" value="Payment status" />
-          <p:outputLabel />
-          <p:outputLabel />
           <p:selectBooleanCheckbox id="payment-status"
             value="#{data.isPaid}" disabled="true" />
         </p:panelGrid>
