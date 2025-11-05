@@ -15,8 +15,8 @@ import org.apache.commons.lang3.Strings;
 import com.axonivy.solutions.caseprocessviewer.bo.Node;
 import com.axonivy.solutions.caseprocessviewer.bo.Path;
 import com.axonivy.solutions.caseprocessviewer.bo.TaskPath;
-import com.axonivy.solutions.caseprocessviewer.core.internal.ProcessUtils;
 import com.axonivy.solutions.caseprocessviewer.core.util.PIDUtils;
+import com.axonivy.solutions.caseprocessviewer.core.util.ProcessUtils;
 import com.axonivy.solutions.caseprocessviewer.enums.PathStatus;
 
 import ch.ivyteam.ivy.environment.Ivy;

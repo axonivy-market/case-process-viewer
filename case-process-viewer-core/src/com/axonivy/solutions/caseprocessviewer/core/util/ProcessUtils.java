@@ -1,4 +1,4 @@
-package com.axonivy.solutions.caseprocessviewer.core.internal;
+package com.axonivy.solutions.caseprocessviewer.core.util;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,7 +14,6 @@ import org.apache.commons.lang3.Strings;
 
 import com.axonivy.solutions.caseprocessviewer.core.bo.Process;
 import com.axonivy.solutions.caseprocessviewer.core.constants.CaseProcessViewerConstants;
-import com.axonivy.solutions.caseprocessviewer.core.util.PIDUtils;
 
 import ch.ivyteam.ivy.application.IProcessModelVersion;
 import ch.ivyteam.ivy.process.model.BaseElement;
@@ -37,8 +36,6 @@ import ch.ivyteam.ivy.process.rdm.IProjectProcessManager;
 
 @SuppressWarnings("restriction")
 public class ProcessUtils {
-
-  static final String SKIP_PROJECTS_VARIABLE = "market.processAnalyzer.skipProjects";
 
   private ProcessUtils() {}
 

@@ -14,8 +14,8 @@ import com.axonivy.solutions.caseprocessviewer.bo.ProcessMiningData;
 import com.axonivy.solutions.caseprocessviewer.constants.ColorConstants;
 import com.axonivy.solutions.caseprocessviewer.core.bo.Process;
 import com.axonivy.solutions.caseprocessviewer.core.constants.CaseProcessViewerConstants;
-import com.axonivy.solutions.caseprocessviewer.core.internal.ProcessUtils;
 import com.axonivy.solutions.caseprocessviewer.core.internal.ProcessViewerBuilder;
+import com.axonivy.solutions.caseprocessviewer.core.util.ProcessUtils;
 import com.axonivy.solutions.caseprocessviewer.utils.JacksonUtils;
 import com.axonivy.solutions.caseprocessviewer.utils.NodeUtils;
 
