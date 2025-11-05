@@ -2,7 +2,7 @@
   "$schema" : "https://json-schema.axonivy.com/process/12.0.0/process.json",
   "id" : "199DB82E409AE3B0",
   "config" : {
-    "data" : "com.axonivy.market.my.product.name.demo.CaseProcessViewerDemoData"
+    "data" : "com.axonivy.market.caseprocessviewer.demo.CaseProcessViewerDemoData"
   },
   "elements" : [ {
       "id" : "f0",
@@ -11,20 +11,21 @@
       "config" : {
         "signature" : "start",
         "request" : {
-          "name" : "Create Purchase Request"
+          "name" : "<%=ivy.cms.co(\"/Processes/Process/PurcharseRequestDemo/name\")%>",
+          "description" : "<%=ivy.cms.co(\"/Processes/Process/PurcharseRequestDemo/description\")%>"
         },
         "task" : {
-          "name" : "Init"
+          "name" : "<%=ivy.cms.co(\"/Processes/Process/PurcharseRequestDemo/Tasks/InitTask/name\")%>"
         },
         "case" : {
-          "name" : "Purchase Request"
+          "name" : "<%=ivy.cms.co(\"/Processes/Process/PurcharseRequestDemo/Cases/name\")%>"
         }
       },
       "tags" : [
         "demo"
       ],
       "visual" : {
-        "at" : { "x" : 96, "y" : 64 }
+        "at" : { "x" : 96, "y" : 128 }
       },
       "connect" : [
         { "id" : "f7", "to" : "S10" }
@@ -33,7 +34,7 @@
       "id" : "f1",
       "type" : "TaskEnd",
       "visual" : {
-        "at" : { "x" : 880, "y" : 64 },
+        "at" : { "x" : 1216, "y" : 128 },
         "labelOffset" : { "x" : 13, "y" : 33 }
       }
     }, {
@@ -42,11 +43,11 @@
       "name" : "Approved?",
       "config" : {
         "conditions" : {
-          "f6" : "in.isApproved"
+          "f6" : "Boolean.valueOf(ivy.case.customFields().stringField(\"isAccountingApproved\").getOrDefault(\"false\")) && Boolean.valueOf(ivy.case.customFields().stringField(\"isPurchasingDepartmentApproved\").getOrDefault(\"false\"))"
         }
       },
       "visual" : {
-        "at" : { "x" : 544, "y" : 64 },
+        "at" : { "x" : 880, "y" : 128 },
         "labelOffset" : { "y" : -16 }
       },
       "connect" : [
@@ -60,90 +61,6 @@
           }, "color" : "default" }
       ]
     }, {
-      "id" : "S20",
-      "type" : "UserBpmnElement",
-      "name" : "Approval",
-      "elements" : [ {
-          "id" : "S20-f6",
-          "type" : "TaskSwitchEvent",
-          "name" : "Approval",
-          "config" : {
-            "task" : {
-              "name" : "Approval"
-            }
-          },
-          "visual" : {
-            "at" : { "x" : 152, "y" : 160 },
-            "labelOffset" : { "x" : 14, "y" : 34 }
-          },
-          "connect" : [
-            { "id" : "S20-f9", "to" : "S20-f10", "color" : "default" }
-          ]
-        }, {
-          "id" : "S20-f10",
-          "type" : "DialogCall",
-          "name" : "Approval UI",
-          "config" : {
-            "dialog" : "com.axonivy.market.my.product.name.demo.PurchaseRequestApprovalDemo:start(String,Number,Number)",
-            "call" : {
-              "map" : {
-                "param.name" : "in.productName",
-                "param.price" : "in.price",
-                "param.quantity" : "in.quantity"
-              }
-            },
-            "output" : {
-              "map" : {
-                "out" : "in",
-                "out.isApproved" : "result.isApproved",
-                "out.price" : "result.price",
-                "out.productName" : "result.name",
-                "out.quantity" : "result.quantity"
-              }
-            }
-          },
-          "visual" : {
-            "at" : { "x" : 280, "y" : 160 }
-          },
-          "connect" : [
-            { "id" : "S20-f1", "to" : "S20-g1" }
-          ]
-        }, {
-          "id" : "S20-g0",
-          "type" : "EmbeddedStart",
-          "name" : "in 1",
-          "visual" : {
-            "at" : { "x" : 64, "y" : 160 },
-            "labelOffset" : { "x" : 3, "y" : 23 }
-          },
-          "parentConnector" : "f2",
-          "connect" : [
-            { "id" : "S20-f0", "to" : "S20-f6" }
-          ]
-        }, {
-          "id" : "S20-g1",
-          "type" : "EmbeddedEnd",
-          "name" : "out 1",
-          "visual" : {
-            "at" : { "x" : 416, "y" : 160 },
-            "labelOffset" : { "x" : 3, "y" : 23 }
-          },
-          "parentConnector" : "f3"
-        }, {
-          "id" : "S20-g2",
-          "type" : "EmbeddedEnd",
-          "visual" : {
-            "at" : { "x" : 416, "y" : 160 },
-            "labelOffset" : { "x" : 3, "y" : 23 }
-          }
-        } ],
-      "visual" : {
-        "at" : { "x" : 408, "y" : 64 }
-      },
-      "connect" : [
-        { "id" : "f3", "to" : "f4" }
-      ]
-    }, {
       "id" : "S10",
       "type" : "UserBpmnElement",
       "name" : "Purchase Request",
@@ -153,7 +70,7 @@
           "name" : "Purchase Request",
           "config" : {
             "task" : {
-              "name" : "Purchase Request"
+              "name" : "<%=ivy.cms.co(\"/Processes/Process/PurcharseRequestDemo/Tasks/PurchaseRequest/name\")%>"
             }
           },
           "visual" : {
@@ -204,13 +121,13 @@
             "at" : { "x" : 416, "y" : 160 },
             "labelOffset" : { "x" : 3, "y" : 23 }
           },
-          "parentConnector" : "f2"
+          "parentConnector" : "f11"
         } ],
       "visual" : {
-        "at" : { "x" : 232, "y" : 64 }
+        "at" : { "x" : 232, "y" : 128 }
       },
       "connect" : [
-        { "id" : "f2", "to" : "S20" }
+        { "id" : "f11", "to" : "f2", "var" : "in1" }
       ]
     }, {
       "id" : "S30",
@@ -260,7 +177,7 @@
           ]
         } ],
       "visual" : {
-        "at" : { "x" : 736, "y" : 192 }
+        "at" : { "x" : 1072, "y" : 224 }
       },
       "connect" : [
         { "id" : "f12", "to" : "f14", "color" : "default" }
@@ -320,7 +237,7 @@
           "name" : "Payment",
           "config" : {
             "task" : {
-              "name" : "Payment"
+              "name" : "<%=ivy.cms.co(\"/Processes/Process/PurcharseRequestDemo/Tasks/Payment/name\")%>"
             }
           },
           "visual" : {
@@ -332,7 +249,7 @@
           ]
         } ],
       "visual" : {
-        "at" : { "x" : 544, "y" : 192 }
+        "at" : { "x" : 880, "y" : 224 }
       },
       "connect" : [
         { "id" : "f8", "to" : "S30" }
@@ -352,14 +269,203 @@
           }
         },
         "task" : {
-          "name" : "Summary"
+          "name" : "<%=ivy.cms.co(\"/Processes/Process/PurcharseRequestDemo/Tasks/Summary/name\")%>"
         }
       },
       "visual" : {
-        "at" : { "x" : 736, "y" : 64 }
+        "at" : { "x" : 1072, "y" : 128 }
       },
       "connect" : [
         { "id" : "f15", "to" : "f1", "color" : "default" }
+      ]
+    }, {
+      "id" : "f10",
+      "type" : "UserTask",
+      "name" : "Purchasing Department Approval",
+      "config" : {
+        "dialog" : "com.axonivy.market.my.product.name.demo.PurchaseRequestApprovalDemo:start(String,Number,Number)",
+        "call" : {
+          "map" : {
+            "param.name" : "in.productName",
+            "param.price" : "in.price",
+            "param.quantity" : "in.quantity"
+          }
+        },
+        "task" : {
+          "name" : "<%=ivy.cms.co(\"/Processes/Process/PurcharseRequestDemo/Tasks/PurchasingDepartmentApproval/name\")%>"
+        },
+        "output" : {
+          "code" : "ivy.case.customFields().stringField(\"isPurchasingDepartmentApproved\").set(String.valueOf(result.isApproved));"
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 520, "y" : 224 }
+      },
+      "connect" : [
+        { "id" : "f28", "to" : "S41", "via" : [ { "x" : 688, "y" : 224 } ] }
+      ]
+    }, {
+      "id" : "f3",
+      "type" : "UserTask",
+      "name" : "Accounting Approval",
+      "config" : {
+        "dialog" : "com.axonivy.market.my.product.name.demo.PurchaseRequestApprovalDemo:start(String,Number,Number)",
+        "call" : {
+          "map" : {
+            "param.name" : "in.productName",
+            "param.price" : "in.price",
+            "param.quantity" : "in.quantity"
+          }
+        },
+        "task" : {
+          "name" : "<%=ivy.cms.co(\"/Processes/Process/PurcharseRequestDemo/Tasks/AccountingApproval/name\")%>"
+        },
+        "output" : {
+          "code" : "ivy.case.customFields().stringField(\"isAccountingApproved\").set(String.valueOf(result.isApproved));"
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 520, "y" : 32 }
+      },
+      "connect" : [
+        { "id" : "f29", "to" : "S41", "via" : [ { "x" : 688, "y" : 32 } ] }
+      ]
+    }, {
+      "id" : "f2",
+      "type" : "TaskSwitchGateway",
+      "config" : {
+        "tasks" : [ {
+            "id" : "TaskA",
+            "name" : "<%=ivy.cms.co(\"/Processes/Process/PurcharseRequestDemo/Tasks/ProcessToAccountingApproval/name\")%>",
+            "responsible" : {
+              "activator" : "SYSTEM"
+            }
+          }, {
+            "id" : "TaskB",
+            "name" : "<%=ivy.cms.co(\"/Processes/Process/PurcharseRequestDemo/Tasks/ProcessToPurchasingDepartmentApproval/name\")%>",
+            "responsible" : {
+              "activator" : "SYSTEM"
+            }
+          } ]
+      },
+      "visual" : {
+        "at" : { "x" : 368, "y" : 128 },
+        "labelOffset" : { "x" : 14, "y" : 34 }
+      },
+      "connect" : [
+        { "id" : "f9", "to" : "f3", "via" : [ { "x" : 368, "y" : 32 } ], "condition" : "ivp==\"TaskA.ivp\"" },
+        { "id" : "f13", "to" : "f10", "via" : [ { "x" : 368, "y" : 224 } ], "condition" : "ivp==\"TaskB.ivp\"" }
+      ]
+    }, {
+      "id" : "S41",
+      "type" : "RuleBpmnElement",
+      "name" : [
+        "All approval task",
+        "are done?"
+      ],
+      "elements" : [ {
+          "id" : "S41-f23",
+          "type" : "Alternative",
+          "name" : [
+            "all approval tasks",
+            "are done?"
+          ],
+          "config" : {
+            "conditions" : {
+              "S41-f2" : "com.axonivy.solutions.caseprocessviewer.demo.util.TaskUtils.canProcessToNextTask()",
+              "S41-f24" : ""
+            }
+          },
+          "visual" : {
+            "at" : { "x" : 392, "y" : 224 },
+            "labelOffset" : { "y" : -32 }
+          },
+          "connect" : [
+            { "id" : "S41-f24", "to" : "S41-f22", "label" : {
+                "name" : "No",
+                "offset" : { "x" : 17, "y" : -2 }
+              } },
+            { "id" : "S41-f2", "to" : "S41-g2", "label" : {
+                "name" : "Yes",
+                "offset" : { "x" : 4, "y" : -10 }
+              } }
+          ]
+        }, {
+          "id" : "S41-f19",
+          "type" : "Alternative",
+          "visual" : {
+            "at" : { "x" : 144, "y" : 224 },
+            "labelOffset" : { "x" : 14, "y" : 34 }
+          },
+          "connect" : [
+            { "id" : "S41-f20", "to" : "S41-f17", "color" : "default" }
+          ]
+        }, {
+          "id" : "S41-f22",
+          "type" : "TaskEnd",
+          "visual" : {
+            "at" : { "x" : 392, "y" : 304 },
+            "labelOffset" : { "x" : 13, "y" : 33 }
+          }
+        }, {
+          "id" : "S41-f17",
+          "type" : "TaskSwitchEvent",
+          "name" : "Check all approval tasks",
+          "config" : {
+            "task" : {
+              "name" : "Check all approval tasks",
+              "responsible" : {
+                "activator" : "SYSTEM"
+              }
+            }
+          },
+          "visual" : {
+            "at" : { "x" : 264, "y" : 224 },
+            "labelOffset" : { "x" : 14, "y" : 34 }
+          },
+          "connect" : [
+            { "id" : "S41-f21", "to" : "S41-f23" }
+          ]
+        }, {
+          "id" : "S41-g0",
+          "type" : "EmbeddedStart",
+          "name" : "in 1",
+          "visual" : {
+            "at" : { "x" : 64, "y" : 288 },
+            "labelOffset" : { "x" : 3, "y" : 23 }
+          },
+          "parentConnector" : "f29",
+          "connect" : [
+            { "id" : "S41-f0", "to" : "S41-f19", "via" : [ { "x" : 144, "y" : 288 } ] }
+          ]
+        }, {
+          "id" : "S41-g1",
+          "type" : "EmbeddedStart",
+          "name" : "in 2",
+          "visual" : {
+            "at" : { "x" : 64, "y" : 160 },
+            "labelOffset" : { "x" : 3, "y" : 23 }
+          },
+          "parentConnector" : "f28",
+          "connect" : [
+            { "id" : "S41-f1", "to" : "S41-f19", "via" : [ { "x" : 144, "y" : 160 } ] }
+          ]
+        }, {
+          "id" : "S41-g2",
+          "type" : "EmbeddedEnd",
+          "name" : "out 1",
+          "visual" : {
+            "at" : { "x" : 512, "y" : 224 },
+            "labelOffset" : { "x" : 11, "y" : 27 }
+          },
+          "parentConnector" : "f30"
+        } ],
+      "visual" : {
+        "at" : { "x" : 688, "y" : 128 },
+        "size" : { "width" : 128, "height" : 62 }
+      },
+      "connect" : [
+        { "id" : "f30", "to" : "f4" }
       ]
     } ]
 }

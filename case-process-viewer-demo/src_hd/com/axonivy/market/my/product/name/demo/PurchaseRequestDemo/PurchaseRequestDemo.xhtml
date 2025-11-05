@@ -7,41 +7,47 @@
   xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
   <ui:composition template="/layouts/frame-10-full-width.xhtml">
-    <ui:define name="title">PurchaseRequest</ui:define>
+    <ui:define name="title">#{ivy.cms.co('/Labels/PurchaseRequest')}</ui:define>
     <ui:define name="content">
 
-      <h3>Order</h3>
+      <h3>#{ivy.cms.co('/Labels/Order')}</h3>
 
       <h:form id="form">
-        <p:messages />
+        <p:messages id="messages" />
         <p:panelGrid columns="3" layout="grid"
           styleClass="ui-panelgrid-blank ui-fluid"
           columnClasses="ui-g-12 ui-md-4 ui-lg-4 py-0 pl-0, ui-g-12 ui-md-4 ui-lg-4 py-0, ui-g-12 ui-md-4 ui-lg-4 py-0 pr-0">
 
-          <p:outputLabel for="product-name" value="Product Name" />
-          <p:outputLabel for="product-price" value="Product Price" />
-          <p:outputLabel for="product-quantity" value="Product Quantity" />
+          <p:outputLabel for="product-name"
+            value="#{ivy.cms.co('/Labels/ProductName')}" />
+          <p:outputLabel for="product-price"
+            value="#{ivy.cms.co('/Labels/ProductPrice')}" />
+          <p:outputLabel for="product-quantity"
+            value="#{ivy.cms.co('/Labels/ProductQuantity')}" />
 
-          <p:inputText id="product-name" value="#{data.name}" />
+          <p:inputText id="product-name" value="#{data.name}"
+            required="true" />
           <p:inputNumber id="product-price" decimalPlaces="0"
             symbol=" $" symbolPosition="s" decimalSeparator="."
             thousandSeparator="," minValue="0" value="#{data.price}"
-            maxValue="1000000" />
+            maxValue="1000000" required="true" />
 
           <p:inputNumber id="product-quantity" decimalPlaces="0"
-            minValue="0" value="#{data.quantity}" maxValue="10000"/>
+            minValue="0" value="#{data.quantity}" maxValue="10000"
+            required="true" />
         </p:panelGrid>
 
         <ic:com.axonivy.solutions.caseprocessviewer.component.ProcessViewer
-          header="Purchase Request Case" />
+          header="#{ivy.cms.co('/Labels/PurchaseRequestCase')}" />
 
         <br />
         <div class="command-btns">
           <p:commandLink id="cancel"
             actionListener="#{ivyWorkflowView.cancel()}" process="@this"
-            value="Cancel" />
+            value="#{ivy.cms.co('/Labels/Cancel')}" />
           <p:commandButton id="proceed" actionListener="#{logic.close}"
-            value="Proceed To Approval" update="form" icon="pi pi-check" />
+            value="#{ivy.cms.co('/Labels/ProceedToApproval')}"
+            update="messages" icon="pi pi-check" />
         </div>
       </h:form>
 

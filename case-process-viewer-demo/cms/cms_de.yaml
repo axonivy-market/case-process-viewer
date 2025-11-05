@@ -1,8 +1,41 @@
+Labels:
+  Approve: Genehmigen
+  Cancel: Abbrechen
+  Close: Schließen
+  Order: Bestellung
+  OrderApproval: Auftragsfreigabe
+  Payment: Zahlung
+  PaymentStatus: Zahlungsstatus
+  ProceedToApproval: Weiter zur Genehmigung
+  ProductName: Produktname
+  ProductPrice: Produktpreis
+  ProductQuantity: Produktmenge
+  PurchaseRequest: Kaufanforderung
+  PurchaseRequestApproval: Genehmigung von Kaufanfragen
+  PurchaseRequestCase: Kaufanfragefall
+  Reject: Ablehnen
+  Summary: Zusammenfassung
 Processes:
   Process:
-    PaymentProcessingDemo:
-      description: Automatisches Demoprojekt für Prozessanalysator
-      name: Automatische Hotelbuchung
     PurcharseRequestDemo:
-      description: Demo-Projekt für Fallanalysator
-      name: Fallanalysator-Demo
+      Cases:
+        name: Demo anfordern
+      Tasks:
+        AccountingApproval:
+          name: Buchhaltungsfreigabe
+        InitTask:
+          name: Init-Aufgabe
+        Payment:
+          name: Zahlung
+        ProcessToAccountingApproval:
+          name: Prozess zur Genehmigung der Buchhaltung
+        ProcessToPurchasingDepartmentApproval:
+          name: Prozess bis zur Genehmigung durch die Einkaufsabteilung
+        PurchaseRequest:
+          name: Kaufanforderung
+        PurchasingDepartmentApproval:
+          name: Genehmigung durch die Einkaufsabteilung
+        Summary:
+          name: Zusammenfassung
+      description: Demo-Projekt für Fallprozess-Viewer
+      name: Demo anfordern
