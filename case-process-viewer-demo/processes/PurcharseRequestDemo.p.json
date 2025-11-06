@@ -360,7 +360,7 @@
       "id" : "S41",
       "type" : "RuleBpmnElement",
       "name" : [
-        "All approval task",
+        "All approval tasks",
         "are done?"
       ],
       "elements" : [ {
@@ -462,7 +462,7 @@
         } ],
       "visual" : {
         "at" : { "x" : 688, "y" : 128 },
-        "size" : { "width" : 128, "height" : 62 }
+        "size" : { "width" : 144, "height" : 63 }
       },
       "connect" : [
         { "id" : "f30", "to" : "f4" }
