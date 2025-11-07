@@ -1,10 +1,12 @@
 package com.axonivy.solutions.caseprocessviewer.test.it;
 
 import static com.codeborne.selenide.Condition.enabled;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 import com.axonivy.ivy.webtest.engine.EngineUrl;
+import com.codeborne.selenide.Condition;
 
 public class WebBaseTest {
   protected static final String PROCESS_TEST_PATH = "/case-process-viewer-test/19A52DA5B971F827/start.ivp";
@@ -15,6 +17,15 @@ public class WebBaseTest {
 
   protected void openTasksPage() {
     open(EngineUrl.base() + "/dev-workflow-ui/faces/tasks.xhtml");
+  }
+
+  protected void openLoginPage() {
+    open(EngineUrl.base() + "/dev-workflow-ui/faces/loginTable.xhtml");
+  }
+
+  protected void loginWithUser(String username) {
+    $("tbody#loginTable\\:users_data").shouldBe(visible).$$("tr td").findBy(Condition.text(username)).shouldBe(enabled)
+        .click();
   }
 
   protected void startFirstTask() {

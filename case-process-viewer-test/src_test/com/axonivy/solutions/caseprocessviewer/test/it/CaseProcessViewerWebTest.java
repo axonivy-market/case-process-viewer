@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import com.axonivy.ivy.webtest.IvyWebTest;
 
-@IvyWebTest
+@IvyWebTest(headless = false)
 public class CaseProcessViewerWebTest extends WebBaseTest {
 
   private static final String TASK_START_ELEMENT_ID = "#sprotty_19A52DA5B971F827-f0";
@@ -20,6 +20,8 @@ public class CaseProcessViewerWebTest extends WebBaseTest {
 
   @Test
   void testCaseProcessViewerOnProcessTest() {
+    openLoginPage();
+    loginWithUser("Developer user");
     startProcessTest();
     openTasksPage();
     startFirstTask();
