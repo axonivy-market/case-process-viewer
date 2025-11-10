@@ -3,7 +3,6 @@ package com.axonivy.solutions.caseprocessviewer.core.internal;
 import static com.axonivy.solutions.caseprocessviewer.core.constants.CaseProcessViewerConstants.SLASH;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.Strings;
 
 import com.axonivy.solutions.caseprocessviewer.core.enums.StartElementType;
 
@@ -55,7 +54,7 @@ public class ProcessStartFactory {
         return localeName;
       }
 
-      if (Strings.CS.contains(startElement.getRequestPath(), SLASH)) {
+      if (StringUtils.contains(startElement.getRequestPath(), SLASH)) {
         var requestPaths = StringUtils.split(startElement.getRequestPath(), SLASH);
         return requestPaths[requestPaths.length - 1];
       }

@@ -1,4 +1,4 @@
-package com.axonivy.solutions.caseprocessviewer.core.internal;
+package com.axonivy.solutions.caseprocessviewer.core.util;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -10,11 +10,9 @@ import java.util.stream.Stream;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.Strings;
 
 import com.axonivy.solutions.caseprocessviewer.core.bo.Process;
 import com.axonivy.solutions.caseprocessviewer.core.constants.CaseProcessViewerConstants;
-import com.axonivy.solutions.caseprocessviewer.core.util.PIDUtils;
 
 import ch.ivyteam.ivy.application.IProcessModelVersion;
 import ch.ivyteam.ivy.process.model.BaseElement;
@@ -37,8 +35,6 @@ import ch.ivyteam.ivy.process.rdm.IProjectProcessManager;
 
 @SuppressWarnings("restriction")
 public class ProcessUtils {
-
-  static final String SKIP_PROJECTS_VARIABLE = "market.processAnalyzer.skipProjects";
 
   private ProcessUtils() {}
 
@@ -104,7 +100,7 @@ public class ProcessUtils {
     }
     String targetName = SubProcessCall.class.cast(element).getCallTarget().getSignature().getName();
     return getNestedProcessElementsFromSub(element).stream().filter(CallSubStart.class::isInstance)
-        .map(CallSubStart.class::cast).filter(start -> Strings.CS.equals(start.getSignature().getName(), targetName))
+        .map(CallSubStart.class::cast).filter(start -> StringUtils.equals(start.getSignature().getName(), targetName))
         .findAny().orElse(null);
   }
 
@@ -159,7 +155,7 @@ public class ProcessUtils {
       if (hasElement(targetElementId, processElements, elementIds)) {
         return true;
       }
-    } else if (Strings.CI.equals(targetElementId, PIDUtils.getId(processElement.getPid()))) {
+    } else if (StringUtils.equalsAnyIgnoreCase(targetElementId, PIDUtils.getId(processElement.getPid()))) {
       return true;
     }
 

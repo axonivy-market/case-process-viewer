@@ -31,4 +31,8 @@
   stroke: #47C46B !important;
 }
 
+.sprotty-graph {
+  background: var(--glsp-editor-background);
+}
+
 /* End - Custom css for active elements */

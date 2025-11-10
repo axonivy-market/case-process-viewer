@@ -3,7 +3,7 @@ package com.axonivy.solutions.caseprocessviewer.utils;
 import java.util.List;
 
 import com.axonivy.solutions.caseprocessviewer.bo.Node;
-import com.axonivy.solutions.caseprocessviewer.core.internal.ProcessUtils;
+import com.axonivy.solutions.caseprocessviewer.core.util.ProcessUtils;
 import com.axonivy.solutions.caseprocessviewer.resolver.NodeResolver;
 import com.axonivy.solutions.caseprocessviewer.resolver.PassedStatusNodeResolver;
 
