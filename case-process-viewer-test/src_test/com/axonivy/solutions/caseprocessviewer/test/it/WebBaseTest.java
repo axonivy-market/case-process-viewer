@@ -20,7 +20,7 @@ public class WebBaseTest {
   }
 
   protected void openLoginPage() {
-    open(EngineUrl.base() + "/dev-workflow-ui/faces/loginTable.xhtml");
+    open(EngineUrl.base() + "/dev-workflow-ui/faces/switch-user.xhtml");
   }
 
   protected void loginWithUser(String username) {
