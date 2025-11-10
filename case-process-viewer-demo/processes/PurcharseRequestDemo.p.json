@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/12.0.0/process.json",
+  "$schema" : "https://json-schema.axonivy.com/process/13.1.2/process.json",
   "id" : "199DB82E409AE3B0",
   "config" : {
     "data" : "com.axonivy.market.caseprocessviewer.demo.CaseProcessViewerDemoData"
@@ -338,13 +338,17 @@
             "id" : "TaskA",
             "name" : "<%=ivy.cms.co(\"/Processes/Process/PurcharseRequestDemo/Tasks/ProcessToAccountingApproval/name\")%>",
             "responsible" : {
-              "activator" : "SYSTEM"
+              "roles" : [
+                "SYSTEM"
+              ]
             }
           }, {
             "id" : "TaskB",
             "name" : "<%=ivy.cms.co(\"/Processes/Process/PurcharseRequestDemo/Tasks/ProcessToPurchasingDepartmentApproval/name\")%>",
             "responsible" : {
-              "activator" : "SYSTEM"
+              "roles" : [
+                "SYSTEM"
+              ]
             }
           } ]
       },
@@ -415,7 +419,9 @@
             "task" : {
               "name" : "Check all approval tasks",
               "responsible" : {
-                "activator" : "SYSTEM"
+                "roles" : [
+                  "SYSTEM"
+                ]
               }
             }
           },

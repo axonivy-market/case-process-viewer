@@ -10,7 +10,6 @@ import java.util.stream.Stream;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.Strings;
 
 import com.axonivy.solutions.caseprocessviewer.core.bo.Process;
 import com.axonivy.solutions.caseprocessviewer.core.constants.CaseProcessViewerConstants;
@@ -101,7 +100,7 @@ public class ProcessUtils {
     }
     String targetName = SubProcessCall.class.cast(element).getCallTarget().getSignature().getName();
     return getNestedProcessElementsFromSub(element).stream().filter(CallSubStart.class::isInstance)
-        .map(CallSubStart.class::cast).filter(start -> Strings.CS.equals(start.getSignature().getName(), targetName))
+        .map(CallSubStart.class::cast).filter(start -> StringUtils.equals(start.getSignature().getName(), targetName))
         .findAny().orElse(null);
   }
 
@@ -156,7 +155,7 @@ public class ProcessUtils {
       if (hasElement(targetElementId, processElements, elementIds)) {
         return true;
       }
-    } else if (Strings.CI.equals(targetElementId, PIDUtils.getId(processElement.getPid()))) {
+    } else if (StringUtils.equalsAnyIgnoreCase(targetElementId, PIDUtils.getId(processElement.getPid()))) {
       return true;
     }
 

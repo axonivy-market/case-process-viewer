@@ -44,7 +44,6 @@ public class ProcessViewerBuilder {
     setQueryParam(APP, application.getName());
   }
 
-  @SuppressWarnings("deprecation")
   private String detectServerParam() {
     String server = IHtmlDialogContext.current().applicationHomeLink().toAbsoluteUri().getAuthority();;
     String securityContextName = ISecurityContext.current().getName();

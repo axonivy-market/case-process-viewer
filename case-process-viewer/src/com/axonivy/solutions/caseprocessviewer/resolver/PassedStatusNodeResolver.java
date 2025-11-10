@@ -10,7 +10,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.commons.collections4.CollectionUtils;
-import org.apache.commons.lang3.Strings;
+import org.apache.commons.lang3.StringUtils;
 
 import com.axonivy.solutions.caseprocessviewer.bo.Node;
 import com.axonivy.solutions.caseprocessviewer.bo.Path;
@@ -278,7 +278,7 @@ public class PassedStatusNodeResolver {
       ProcessElement processElement) {
     var processElementId = ProcessUtils.getElementPid(processElement);
     path.getNodesInPath().add(processElementId);
-    if (Strings.CS.equals(processElementId, targetProcessElementId)) {
+    if (StringUtils.equals(processElementId, targetProcessElementId)) {
       path.setStatus(PathStatus.FOUND);
       path.setEndPathId(processElementId);
       return true;
@@ -295,7 +295,7 @@ public class PassedStatusNodeResolver {
   }
 
   private static boolean isEndOfLoop(String processElementId, Path path) {
-    return Strings.CI.equalsAny(processElementId, path.getStartPathId());
+    return StringUtils.equalsAnyIgnoreCase(processElementId, path.getStartPathId());
   }
 
   private static ProcessElement getNestedSubElement(ProcessElement element, List<ProcessElement> subProcessCalls) {
@@ -305,7 +305,7 @@ public class PassedStatusNodeResolver {
 
   private static List<SequenceFlow> detectOutGoingCreatedTaskFromTaskGetaway(String taskRequestPath,
       ProcessElement processElement) {
-    List<SequenceFlow> outGoingFlows = processElement.getOutgoing();
+    List<SequenceFlow> outGoingFlows = new ArrayList<>();
     var processElementIdPrefix = PIDUtils.getId(processElement.getPid()).concat(SLASH);
     for (var out : processElement.getOutgoing()) {
       String endCondition = out.getCondition();
@@ -314,8 +314,8 @@ public class PassedStatusNodeResolver {
         String value = matcher.group(1);
         endCondition = processElementIdPrefix.concat(value);
       }
-      if (!taskRequestPath.endsWith(endCondition)) {
-        outGoingFlows.remove(out);
+      if (taskRequestPath.endsWith(endCondition)) {
+        outGoingFlows.add(out);
       }
     }
     return outGoingFlows;
