@@ -70,7 +70,8 @@
           "name" : "Purchase Request",
           "config" : {
             "task" : {
-              "name" : "<%=ivy.cms.co(\"/Processes/Process/PurcharseRequestDemo/Tasks/PurchaseRequest/name\")%>"
+              "name" : "<%=ivy.cms.co(\"/Processes/Process/PurcharseRequestDemo/Tasks/PurchaseRequest/name\")%>",
+              "skipTasklist" : true
             }
           },
           "visual" : {
