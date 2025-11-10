@@ -14,7 +14,8 @@
   .sendBpmnElement.active .sprotty-node:not(.sprotty-task-node),
   .ruleBpmnElement.active .sprotty-node:not(.sprotty-task-node),
   .receiveBpmnElement.active .sprotty-node:not(.sprotty-task-node),
-  .taskSwitchGateway.active .sprotty-node:not(.sprotty-task-node) {
+  .taskSwitchGateway.active .sprotty-node:not(.sprotty-task-node),
+  .serviceBpmnElement.active .sprotty-node:not(.sprotty-task-node) {
   fill: rgba(59, 130, 246, 0.25);
 }
 
