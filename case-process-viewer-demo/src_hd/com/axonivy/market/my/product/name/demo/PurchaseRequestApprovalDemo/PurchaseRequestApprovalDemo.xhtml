@@ -44,13 +44,15 @@
           <p:commandLink id="cancel"
             actionListener="#{ivyWorkflowView.cancel()}" process="@this"
             value="#{ivy.cms.co('/Labels/Cancel')}" />
-          <p:commandButton id="proceed"
-            actionListener="#{logic.approve}"
-            value="#{ivy.cms.co('/Labels/Approve')}" update="form"
-            icon="pi pi-check" />
+
           <p:commandButton id="reject" actionListener="#{logic.reject}"
             value="#{ivy.cms.co('/Labels/Reject')}" update="form"
             icon="pi pi-times" />
+
+          <p:commandButton id="proceed"
+            actionListener="#{logic.approve}" styleClass="ml-2"
+            value="#{ivy.cms.co('/Labels/Approve')}" update="form"
+            icon="pi pi-check" />
         </div>
       </h:form>
 
