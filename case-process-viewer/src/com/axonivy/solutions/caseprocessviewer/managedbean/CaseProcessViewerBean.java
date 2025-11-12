@@ -26,7 +26,7 @@ import ch.ivyteam.ivy.environment.Ivy;
 
 @ManagedBean
 @ViewScoped
-public class ProcessViewerBean implements Serializable {
+public class CaseProcessViewerBean implements Serializable {
 
   private static final long serialVersionUID = -2589140797903853427L;
   private String bpmnIframeSourceUrl;

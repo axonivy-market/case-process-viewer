@@ -3,7 +3,7 @@
   "id" : "199CD8A32E73DBF8",
   "kind" : "HTML_DIALOG",
   "config" : {
-    "data" : "com.axonivy.solutions.caseprocessviewer.component.ProcessViewer.ProcessViewerData"
+    "data" : "com.axonivy.solutions.caseprocessviewer.component.CaseProcessViewer.CaseProcessViewerData"
   },
   "elements" : [ {
       "id" : "f0",

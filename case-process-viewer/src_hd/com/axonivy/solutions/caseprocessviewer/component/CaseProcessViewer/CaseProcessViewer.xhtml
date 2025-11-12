@@ -18,7 +18,7 @@
   <h:outputStylesheet library="css"
     name="custom-case-process-viewer.css" />
   <p:graphicImage id="process-url-hidden-image" library="ivy-cms"
-    name="#{processViewerBean.processUrl}" />
+    name="#{caseProcessViewerBean.processUrl}" />
 
   <h:panelGroup id="viewer-group" layout="block">
     <p:panel id="viewer-panel" widgetVar="viewer-panel"
@@ -41,7 +41,7 @@
           <p:commandLink id="open-viewer-on-new-tab-link"
             styleClass="ui-panel-titlebar-icon ui-corner-all ui-state-default"
             onclick="openViewerInNewTab()" update="@none"
-            disabled="#{!processViewerBean.shouldRenderBpmnFrame()}"
+            disabled="#{!caseProcessViewerBean.shouldRenderBpmnFrame()}"
             process="@this" partialSubmit="true" immediate="true">
             <h:outputText styleClass="ui-icon pi pi-external-link" />
           </p:commandLink>
@@ -50,9 +50,9 @@
         </h:panelGroup>
       </f:facet>
       <h:panelGroup
-        rendered="#{processViewerBean.shouldRenderBpmnFrame()}">
+        rendered="#{caseProcessViewerBean.shouldRenderBpmnFrame()}">
         <iframe id="case-process-viewer"
-          src="#{processViewerBean.bpmnIframeSourceUrl}" width="100%"
+          src="#{caseProcessViewerBean.bpmnIframeSourceUrl}" width="100%"
           height="100%" class="case-process-viewer"
           onload="loadIframe(false)" />
       </h:panelGroup>
