@@ -1,13 +1,14 @@
 # Fallprozess-Viewer
 
-Diese Axon Ivy-Komponente stellt den Prozessablauf Ihres aktuellen Falls visuell dar. Sie hebt sowohl die aktuell aktive Aufgabe als auch alle abgeschlossenen Aufgaben direkt im Prozessdiagramm hervor, sodass Benutzer den Fortschritt des Falls auf einen Blick schnell erfassen können. Sie wurde für eine reibungslose UI-Integration entwickelt und lässt sich problemlos in jede Benutzeroberfläche einbetten.
+Diese Axon-Ivy-Komponente visualisiert den Ablauf eines laufenden Cases direkt im Prozessdiagramm.
+Sie markiert sowohl die aktuell aktive Aufgabe als auch bereits abgeschlossene Schritte, sodass der Fortschritt jederzeit klar ersichtlich ist. Die Komponente ist für die Integration in bestehende UIs ausgelegt und lässt sich ohne großen Aufwand in Deine UIs einbetten.
 
 Wichtigste Funktionen:
 
 - Zeichnet dynamisch das Prozessdiagramm des aktuellen Falls.
 
-- Hebt die aktuelle Aufgabe und abgeschlossene Aufgaben hervor.
+- Hebt die aktuelle Task sowie die bereits abgeschlossenen Tasks klar und gut sichtbar hervor.
 
-- Bietet einen intuitiven Überblick über den Fallfortschritt.
+- Der Fortschritt im aktuellen Case ist intuitiv erfassbar.
 
 - Einfach zu konfigurieren und in bestehende Ivy-Benutzeroberflächen zu integrieren.

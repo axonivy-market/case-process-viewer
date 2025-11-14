@@ -22,13 +22,13 @@ Processes:
         name: Demo anfordern
       Tasks:
         AccountingApproval:
-          name: Buchhaltungsfreigabe
+          name: Freigabe
         InitTask:
           name: Init-Aufgabe
         Payment:
           name: Zahlung
         ProcessToAccountingApproval:
-          name: Prozess zur Genehmigung der Buchhaltung
+          name: Genehmigungsprozess
         ProcessToPurchasingDepartmentApproval:
           name: Prozess bis zur Genehmigung durch die Einkaufsabteilung
         PurchaseRequest:
@@ -37,5 +37,5 @@ Processes:
           name: Genehmigung durch die Einkaufsabteilung
         Summary:
           name: Zusammenfassung
-      description: Demo-Projekt für Fallprozess-Viewer
+      description: Demoprojekt für den Caseanalyser
       name: Demo anfordern
