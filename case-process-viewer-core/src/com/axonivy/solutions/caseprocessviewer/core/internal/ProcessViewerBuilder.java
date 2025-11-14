@@ -3,6 +3,7 @@ package com.axonivy.solutions.caseprocessviewer.core.internal;
 import static com.axonivy.solutions.caseprocessviewer.core.constants.CaseProcessViewerConstants.AND;
 import static com.axonivy.solutions.caseprocessviewer.core.constants.CaseProcessViewerConstants.SLASH;
 import static com.axonivy.solutions.caseprocessviewer.core.enums.ViewerParam.APP;
+import static com.axonivy.solutions.caseprocessviewer.core.enums.ViewerParam.CASE_PROCESS_VIEWER;
 import static com.axonivy.solutions.caseprocessviewer.core.enums.ViewerParam.CASE_PROCESS_VIEWER_FILE;
 import static com.axonivy.solutions.caseprocessviewer.core.enums.ViewerParam.FACES;
 import static com.axonivy.solutions.caseprocessviewer.core.enums.ViewerParam.FILE;
@@ -43,8 +44,9 @@ public class ProcessViewerBuilder {
     setQueryParam(APP, application.getName());
   }
 
+  @SuppressWarnings("deprecation")
   private String detectServerParam() {
-    String server = IHtmlDialogContext.current().appBaseLink().toAbsoluteUri().getAuthority();;
+    String server = IHtmlDialogContext.current().applicationHomeLink().toAbsoluteUri().getAuthority();;
     String securityContextName = ISecurityContext.current().getName();
     if (!ISecurityContext.DEFAULT.equals(securityContextName)) {
       server = StringUtils.join(server, SLASH, securityContextName);
@@ -76,7 +78,7 @@ public class ProcessViewerBuilder {
     var uriBuilder = UriBuilder.fromPath(contextPath)
         .path(FACES.getValue())
         .path(VIEW.getValue())
-        .path("case-process-viewer")
+        .path(CASE_PROCESS_VIEWER.getValue())
         .path(CASE_PROCESS_VIEWER_FILE.getValue());
     // Build URI with template e.g /uri/param={param}
     List<String> queryParamKeys = queryParams.keySet().stream()

@@ -14,8 +14,8 @@ import com.axonivy.solutions.caseprocessviewer.bo.ProcessMiningData;
 import com.axonivy.solutions.caseprocessviewer.constants.ColorConstants;
 import com.axonivy.solutions.caseprocessviewer.core.bo.Process;
 import com.axonivy.solutions.caseprocessviewer.core.constants.CaseProcessViewerConstants;
-import com.axonivy.solutions.caseprocessviewer.core.internal.ProcessUtils;
 import com.axonivy.solutions.caseprocessviewer.core.internal.ProcessViewerBuilder;
+import com.axonivy.solutions.caseprocessviewer.core.util.ProcessUtils;
 import com.axonivy.solutions.caseprocessviewer.utils.JacksonUtils;
 import com.axonivy.solutions.caseprocessviewer.utils.NodeUtils;
 
@@ -26,7 +26,7 @@ import ch.ivyteam.ivy.environment.Ivy;
 
 @ManagedBean
 @ViewScoped
-public class ProcessViewerBean implements Serializable {
+public class CaseProcessViewerBean implements Serializable {
 
   private static final long serialVersionUID = -2589140797903853427L;
   private String bpmnIframeSourceUrl;

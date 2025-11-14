@@ -1,8 +1,41 @@
+Labels:
+  Approve: Approve
+  Cancel: Cancel
+  Close: Close
+  Order: Order
+  OrderApproval: Order Approval
+  Payment: Payment
+  PaymentStatus: Payment Status
+  ProceedToApproval: Proceed To Approval
+  ProductName: Product Name
+  ProductPrice: Product Price
+  ProductQuantity: Product Quantity
+  PurchaseRequest: Purchase Request
+  PurchaseRequestApproval: Purchase Request Approval
+  PurchaseRequestCase: Purchase Request Case
+  Reject: Reject
+  Summary: Summary
 Processes:
   Process:
-    PaymentProcessingDemo:
-      description: Automatic demo project for process analyser
-      name: Automatic Hotel Booking
     PurcharseRequestDemo:
-      description: Demo project for case analyser
-      name: Case Analyser Demo
+      Cases:
+        name: Purchase Request Demo
+      Tasks:
+        AccountingApproval:
+          name: Accounting Approval
+        InitTask:
+          name: Init task
+        Payment:
+          name: Payment
+        ProcessToAccountingApproval:
+          name: Process To Accounting Approval
+        ProcessToPurchasingDepartmentApproval:
+          name: Process To Purchasing Department Approval
+        PurchaseRequest:
+          name: Purchase Request
+        PurchasingDepartmentApproval:
+          name: Purchasing Department Approval
+        Summary:
+          name: Summary
+      description: Demo project for case process viewer
+      name: Purchase Request Demo

@@ -1,32 +1,38 @@
-<!--
-Dear developer!     
+# Case Process Viewer
 
-When you create your very valuable documentation, please be aware that this Readme.md is not only published on github. This documentation is also processed automatically and published on our website. For this to work, the two headings "Demo" and "Setup" must not be changed. Do also not change the order of the headings. Feel free to add sub-sections wherever you want.
--->
+This Axon Ivy component visually represents the process flow of your current case. It highlights both the current active task and all completed tasks directly on the process diagram, helping users quickly understand the case’s progress at a glance. Designed for smooth UI integration, it can be easily embedded into any UI.
 
-# Case Process Viewer Connector
+Key Features:
 
-YOUR DESCRIPTION GOES HERE: Please just give a short description here without further headings.
+- Dynamically draws the process diagram of the current case
 
-<!--
-The explanations under "MY-RRODUCT-NAME" are displayed  e.g. for the Connector A-Trust here: https://market.axonivy.com/a-trust#tab-description   
--->
+- Highlights the current task and completed tasks
+
+- Provides an intuitive overview of case progress
+
+- Simple to configure and integrate into existing Ivy user interfaces
+
+![purchase-request-approval](images/purchase-request-approval.png)
 
 ## Demo
 
-YOUR DEMO DESCRIPTION GOES HERE
+1. Start **Purchase Request Demo** process
+2. Start **Purchase Request** task to view the status of the current task.
+![purchase-request](images/purchase-request.png)
 
-<!--
-We use all entries under the heading "Demo" for the demo-Tab on our Website, e.g. for the Connector A-Trust here: https://market.axonivy.com/a-trust#tab-demo  
--->
 
 ## Setup
 
-YOUR SETUP DESCRIPTION GOES HERE
-<!--
-The entries under the heading "Setup" are filled in this tab, e.g. for the Connector A-Trust here: https://market.axonivy.com/a-trust#tab-setup. 
--->
+**Add the Component to Your JSF Page**
 
-```
-@variables.yaml@
-```
+   Include the component in your XHTML file using the following syntax:
+
+   ```
+   <ic:com.axonivy.solutions.caseprocessviewer.component.ProcessViewer header="Case Process Viewer" />
+   ```
+
+**Component Attributes**
+
+| Attribute | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `header` | `String` | No | Text label for the header (default: "Case Process Viewer") |

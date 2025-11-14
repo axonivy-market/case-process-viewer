@@ -6,7 +6,7 @@ import java.util.stream.Stream;
 
 import com.axonivy.solutions.caseprocessviewer.bo.Node;
 import com.axonivy.solutions.caseprocessviewer.core.constants.CaseProcessViewerConstants;
-import com.axonivy.solutions.caseprocessviewer.core.internal.ProcessUtils;
+import com.axonivy.solutions.caseprocessviewer.core.util.ProcessUtils;
 import com.axonivy.solutions.caseprocessviewer.enums.NodeType;
 
 import ch.ivyteam.ivy.process.model.connector.SequenceFlow;

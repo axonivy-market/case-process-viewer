@@ -1,14 +1,14 @@
-<!--
-Dear developer !     
+# Fallprozess-Viewer
 
-When you create your very valuable documentation, please be aware that this  is not only published on github. With this file we provide a German translation of the description-tab, i.e. https://market.axonivy.com/adobe-acrobat-connector#tab-description. Please contact us if you need support with the German translation.
--->
+Diese Axon-Ivy-Komponente visualisiert den Ablauf eines laufenden Cases direkt im Prozessdiagramm.
+Sie markiert sowohl die aktuell aktive Aufgabe als auch bereits abgeschlossene Schritte, sodass der Fortschritt jederzeit klar ersichtlich ist. Die Komponente ist für die Integration in bestehende UIs ausgelegt und lässt sich ohne großen Aufwand in Deine UIs einbetten.
 
-# MEIN-PRODUKT-NAME
+Wichtigste Funktionen:
 
-Bitte übersetze mindestens das "Description"-Chapter aus https://github.com/axonivy-market/market-product/blob/master/case-process-viewer-product/README.md. Es wird auf unserer Homepage angezeigt.
-Falls Du darüber hinaus auch die anderen Chapter übersetzt, werden auch diese auf der Homepage auf Deutsch angezeigt.
+- Zeichnet dynamisch das Prozessdiagramm des aktuellen Falls.
 
-<!--
-Die Erläuterungen unter „MEIN-PRODUKT-NAME“ werden z.B. für den  Adobe Konnektor hier angezeigt: https://market.axonivy.com/adobe-acrobat-connector#tab-description wenn ein Nutzer Deutsch als Anzeigesprache ausgewählt hat.
--->
+- Hebt die aktuelle Task sowie die bereits abgeschlossenen Tasks klar und gut sichtbar hervor.
+
+- Der Fortschritt im aktuellen Case ist intuitiv erfassbar.
+
+- Einfach zu konfigurieren und in bestehende Ivy-Benutzeroberflächen zu integrieren.

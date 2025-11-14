@@ -3,7 +3,7 @@
   "id" : "19A331B7456D9C24",
   "kind" : "CALLABLE_SUB",
   "config" : {
-    "data" : "com.axonivy.market.my.product.name.demo.AutoPaymentProcessingData"
+    "data" : "com.axonivy.market.caseprocessviewer.demo.AutoPaymentProcessingData"
   },
   "elements" : [ {
       "id" : "f0",
