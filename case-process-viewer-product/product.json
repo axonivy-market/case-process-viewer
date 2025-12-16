@@ -10,24 +10,7 @@
             "artifactId": "case-process-viewer-demo",
             "version": "${version}",
             "type": "iar"
-          }
-        ],
-        "repositories": [
-          {
-            "id": "maven.axonivy.com",
-            "url": "https://maven.axonivy.com",
-            "snapshots": {
-              "enabled": "true"
-            }
-          }
-        ]
-      }
-    },
-    {
-      "id": "maven-dependency",
-      "data": {
-        "dependencies": [
-          {
+          }, {
             "groupId": "com.axonivy.solutions.caseprocessviewer",
             "artifactId": "case-process-viewer",
             "version": "${version}",
