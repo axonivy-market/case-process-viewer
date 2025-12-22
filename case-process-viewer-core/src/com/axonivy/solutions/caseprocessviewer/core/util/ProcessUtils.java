@@ -156,7 +156,7 @@ public class ProcessUtils {
       if (hasElement(targetElementId, processElements, elementIds)) {
         return true;
       }
-    } else if (Strings.CI.equals(targetElementId, PIDUtils.getId(processElement.getPid()))) {
+    } else if (Strings.CI.equalsAny(targetElementId, PIDUtils.getId(processElement.getPid()))) {
       return true;
     }
 

@@ -1,31 +1,17 @@
 {
   "$schema" : "https://json-schema.axonivy.com/process/13.2.0/process.json",
-  "id" : "19A332D5658B2163",
+  "id" : "199CD8A32E73DBF8",
   "kind" : "HTML_DIALOG",
   "config" : {
-    "data" : "com.axonivy.market.my.product.name.demo.SummaryDemo.SummaryDemoData"
+    "data" : "com.axonivy.solutions.caseprocessviewer.component.ProcessViewer.ProcessViewerData"
   },
   "elements" : [ {
       "id" : "f0",
       "type" : "HtmlDialogStart",
-      "name" : "start(String,Number,Number,Boolean)",
+      "name" : "start()",
       "config" : {
         "signature" : "start",
-        "input" : {
-          "params" : [
-            { "name" : "name", "type" : "String", "desc" : "" },
-            { "name" : "price", "type" : "Number", "desc" : "" },
-            { "name" : "quantity", "type" : "Number", "desc" : "" },
-            { "name" : "isPaid", "type" : "Boolean", "desc" : "" }
-          ],
-          "map" : {
-            "out.isPaid" : "param.isPaid",
-            "out.name" : "param.name",
-            "out.price" : "param.price",
-            "out.quantity" : "param.quantity"
-          }
-        },
-        "guid" : "19A332015BA987C0"
+        "guid" : "198E076C55792D95"
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 }
@@ -45,7 +31,7 @@
       "type" : "HtmlDialogEventStart",
       "name" : "close",
       "config" : {
-        "guid" : "19A332015BB33F23"
+        "guid" : "198E076C55D6DA0B"
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 160 }

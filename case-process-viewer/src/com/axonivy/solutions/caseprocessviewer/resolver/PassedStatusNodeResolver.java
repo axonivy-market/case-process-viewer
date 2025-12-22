@@ -305,7 +305,7 @@ public class PassedStatusNodeResolver {
 
   private static List<SequenceFlow> detectOutGoingCreatedTaskFromTaskGetaway(String taskRequestPath,
       ProcessElement processElement) {
-    List<SequenceFlow> outGoingFlows = processElement.getOutgoing();
+    List<SequenceFlow> outGoingFlows = new ArrayList<>();
     var processElementIdPrefix = PIDUtils.getId(processElement.getPid()).concat(SLASH);
     for (var out : processElement.getOutgoing()) {
       String endCondition = out.getCondition();
@@ -314,8 +314,8 @@ public class PassedStatusNodeResolver {
         String value = matcher.group(1);
         endCondition = processElementIdPrefix.concat(value);
       }
-      if (!taskRequestPath.endsWith(endCondition)) {
-        outGoingFlows.remove(out);
+      if (taskRequestPath.endsWith(endCondition)) {
+        outGoingFlows.add(out);
       }
     }
     return outGoingFlows;
