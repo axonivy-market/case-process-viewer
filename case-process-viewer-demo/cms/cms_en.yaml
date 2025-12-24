@@ -17,7 +17,7 @@ Labels:
   Summary: Summary
 Processes:
   Process:
-    PurcharseRequestDemo:
+    PurchaseRequestDemo:
       Cases:
         name: Purchase Request Demo
       Tasks:

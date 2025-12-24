@@ -11,14 +11,14 @@
       "config" : {
         "signature" : "start",
         "request" : {
-          "name" : "<%=ivy.cms.co(\"/Processes/Process/PurcharseRequestDemo/name\")%>",
-          "description" : "<%=ivy.cms.co(\"/Processes/Process/PurcharseRequestDemo/description\")%>"
+          "name" : "<%=ivy.cms.co(\"/Processes/Process/PurchaseRequestDemo/name\")%>",
+          "description" : "<%=ivy.cms.co(\"/Processes/Process/PurchaseRequestDemo/description\")%>"
         },
         "task" : {
-          "name" : "<%=ivy.cms.co(\"/Processes/Process/PurcharseRequestDemo/Tasks/InitTask/name\")%>"
+          "name" : "<%=ivy.cms.co(\"/Processes/Process/PurchaseRequestDemo/Tasks/InitTask/name\")%>"
         },
         "case" : {
-          "name" : "<%=ivy.cms.co(\"/Processes/Process/PurcharseRequestDemo/Cases/name\")%>"
+          "name" : "<%=ivy.cms.co(\"/Processes/Process/PurchaseRequestDemo/Cases/name\")%>"
         }
       },
       "tags" : [
@@ -70,7 +70,7 @@
           "name" : "Purchase Request",
           "config" : {
             "task" : {
-              "name" : "<%=ivy.cms.co(\"/Processes/Process/PurcharseRequestDemo/Tasks/PurchaseRequest/name\")%>",
+              "name" : "<%=ivy.cms.co(\"/Processes/Process/PurchaseRequestDemo/Tasks/PurchaseRequest/name\")%>",
               "skipTasklist" : true
             }
           },
@@ -238,7 +238,7 @@
           "name" : "Payment",
           "config" : {
             "task" : {
-              "name" : "<%=ivy.cms.co(\"/Processes/Process/PurcharseRequestDemo/Tasks/Payment/name\")%>"
+              "name" : "<%=ivy.cms.co(\"/Processes/Process/PurchaseRequestDemo/Tasks/Payment/name\")%>"
             }
           },
           "visual" : {
@@ -270,7 +270,7 @@
           }
         },
         "task" : {
-          "name" : "<%=ivy.cms.co(\"/Processes/Process/PurcharseRequestDemo/Tasks/Summary/name\")%>"
+          "name" : "<%=ivy.cms.co(\"/Processes/Process/PurchaseRequestDemo/Tasks/Summary/name\")%>"
         }
       },
       "visual" : {
@@ -293,7 +293,7 @@
           }
         },
         "task" : {
-          "name" : "<%=ivy.cms.co(\"/Processes/Process/PurcharseRequestDemo/Tasks/PurchasingDepartmentApproval/name\")%>"
+          "name" : "<%=ivy.cms.co(\"/Processes/Process/PurchaseRequestDemo/Tasks/PurchasingDepartmentApproval/name\")%>"
         },
         "output" : {
           "code" : "ivy.case.customFields().stringField(\"isPurchasingDepartmentApproved\").set(String.valueOf(result.isApproved));"
@@ -319,7 +319,7 @@
           }
         },
         "task" : {
-          "name" : "<%=ivy.cms.co(\"/Processes/Process/PurcharseRequestDemo/Tasks/AccountingApproval/name\")%>"
+          "name" : "<%=ivy.cms.co(\"/Processes/Process/PurchaseRequestDemo/Tasks/AccountingApproval/name\")%>"
         },
         "output" : {
           "code" : "ivy.case.customFields().stringField(\"isAccountingApproved\").set(String.valueOf(result.isApproved));"
@@ -337,7 +337,7 @@
       "config" : {
         "tasks" : [ {
             "id" : "TaskA",
-            "name" : "<%=ivy.cms.co(\"/Processes/Process/PurcharseRequestDemo/Tasks/ProcessToAccountingApproval/name\")%>",
+            "name" : "<%=ivy.cms.co(\"/Processes/Process/PurchaseRequestDemo/Tasks/ProcessToAccountingApproval/name\")%>",
             "responsible" : {
               "roles" : [
                 "SYSTEM"
@@ -345,7 +345,7 @@
             }
           }, {
             "id" : "TaskB",
-            "name" : "<%=ivy.cms.co(\"/Processes/Process/PurcharseRequestDemo/Tasks/ProcessToPurchasingDepartmentApproval/name\")%>",
+            "name" : "<%=ivy.cms.co(\"/Processes/Process/PurchaseRequestDemo/Tasks/ProcessToPurchasingDepartmentApproval/name\")%>",
             "responsible" : {
               "roles" : [
                 "SYSTEM"
