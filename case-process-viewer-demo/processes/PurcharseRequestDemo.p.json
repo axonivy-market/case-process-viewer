@@ -25,7 +25,7 @@
         "demo"
       ],
       "visual" : {
-        "at" : { "x" : 96, "y" : 128 }
+        "at" : { "x" : 16, "y" : 128 }
       },
       "connect" : [
         { "id" : "f7", "to" : "S10" }
@@ -34,7 +34,7 @@
       "id" : "f1",
       "type" : "TaskEnd",
       "visual" : {
-        "at" : { "x" : 1216, "y" : 128 },
+        "at" : { "x" : 1824, "y" : 128 },
         "labelOffset" : { "x" : 13, "y" : 33 }
       }
     }, {
@@ -47,7 +47,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 880, "y" : 128 },
+        "at" : { "x" : 1296, "y" : 128 },
         "labelOffset" : { "y" : -16 }
       },
       "connect" : [
@@ -57,7 +57,7 @@
           } },
         { "id" : "f5", "to" : "f14", "label" : {
             "name" : "No",
-            "offset" : { "x" : 1, "y" : 14 }
+            "offset" : { "x" : -151, "y" : 14 }
           }, "color" : "default" }
       ]
     }, {
@@ -71,7 +71,7 @@
             "at" : { "x" : 64, "y" : 256 },
             "labelOffset" : { "x" : 3, "y" : 23 }
           },
-          "parentConnector" : "f8",
+          "parentConnector" : "f21",
           "connect" : [
             { "id" : "S30-f0", "to" : "S30-f3" }
           ]
@@ -108,7 +108,7 @@
           ]
         } ],
       "visual" : {
-        "at" : { "x" : 1072, "y" : 224 }
+        "at" : { "x" : 1680, "y" : 224 }
       },
       "connect" : [
         { "id" : "f12", "to" : "f14", "color" : "default" }
@@ -152,7 +152,10 @@
             "output" : {
               "map" : {
                 "out" : "in",
-                "out.isPaid" : "true"
+                "out.isBackToSubmitPurchaseRequest" : "result.isBackToSubmitPurchaseRequest",
+                "out.isPaid" : "true",
+                "out.price" : "result.price",
+                "out.productName" : "result.name"
               }
             }
           },
@@ -180,10 +183,10 @@
           ]
         } ],
       "visual" : {
-        "at" : { "x" : 880, "y" : 224 }
+        "at" : { "x" : 1296, "y" : 224 }
       },
       "connect" : [
-        { "id" : "f8", "to" : "S30" }
+        { "id" : "f8", "to" : "f20" }
       ]
     }, {
       "id" : "f14",
@@ -204,7 +207,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 1072, "y" : 128 }
+        "at" : { "x" : 1680, "y" : 128 }
       },
       "connect" : [
         { "id" : "f15", "to" : "f1", "color" : "default" }
@@ -230,10 +233,10 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 520, "y" : 224 }
+        "at" : { "x" : 888, "y" : 224 }
       },
       "connect" : [
-        { "id" : "f28", "to" : "S41", "via" : [ { "x" : 688, "y" : 224 } ] }
+        { "id" : "f28", "to" : "S41", "via" : [ { "x" : 1048, "y" : 224 } ] }
       ]
     }, {
       "id" : "f3",
@@ -256,10 +259,10 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 520, "y" : 32 }
+        "at" : { "x" : 888, "y" : 40 }
       },
       "connect" : [
-        { "id" : "f29", "to" : "S41", "via" : [ { "x" : 688, "y" : 32 } ] }
+        { "id" : "f29", "to" : "S41", "via" : [ { "x" : 1048, "y" : 40 } ] }
       ]
     }, {
       "id" : "f2",
@@ -280,12 +283,12 @@
           } ]
       },
       "visual" : {
-        "at" : { "x" : 368, "y" : 128 },
+        "at" : { "x" : 728, "y" : 128 },
         "labelOffset" : { "x" : 14, "y" : 34 }
       },
       "connect" : [
-        { "id" : "f9", "to" : "f3", "via" : [ { "x" : 368, "y" : 32 } ], "condition" : "ivp==\"TaskA.ivp\"" },
-        { "id" : "f13", "to" : "f10", "via" : [ { "x" : 368, "y" : 224 } ], "condition" : "ivp==\"TaskB.ivp\"" }
+        { "id" : "f9", "to" : "f3", "via" : [ { "x" : 728, "y" : 40 } ], "condition" : "ivp==\"TaskA.ivp\"" },
+        { "id" : "f13", "to" : "f10", "via" : [ { "x" : 728, "y" : 224 } ], "condition" : "ivp==\"TaskB.ivp\"" }
       ]
     }, {
       "id" : "S41",
@@ -392,7 +395,7 @@
           "parentConnector" : "f30"
         } ],
       "visual" : {
-        "at" : { "x" : 688, "y" : 128 },
+        "at" : { "x" : 1048, "y" : 127 },
         "size" : { "width" : 144, "height" : 63 }
       },
       "connect" : [
@@ -413,8 +416,8 @@
             }
           },
           "visual" : {
-            "at" : { "x" : 152, "y" : 160 },
-            "labelOffset" : { "x" : 14, "y" : 34 }
+            "at" : { "x" : 152, "y" : 208 },
+            "labelOffset" : { "x" : 17, "y" : 49 }
           },
           "connect" : [
             { "id" : "S10-f4", "to" : "S10-f13" }
@@ -424,7 +427,15 @@
           "type" : "DialogCall",
           "name" : "Purchase request UI",
           "config" : {
-            "dialog" : "com.axonivy.market.my.product.name.demo.PurchaseRequestDemo:start()",
+            "dialog" : "com.axonivy.market.my.product.name.demo.PurchaseRequestDemo:start(Number,String,Number,Boolean)",
+            "call" : {
+              "map" : {
+                "param.quanity" : "in.quantity",
+                "param.name" : "in.productName",
+                "param.price" : "in.price",
+                "param.isReadOnly" : "false"
+              }
+            },
             "output" : {
               "map" : {
                 "out" : "in",
@@ -435,7 +446,7 @@
             }
           },
           "visual" : {
-            "at" : { "x" : 288, "y" : 160 }
+            "at" : { "x" : 288, "y" : 208 }
           },
           "connect" : [
             { "id" : "S10-f1", "to" : "S10-g1" }
@@ -445,7 +456,7 @@
           "type" : "EmbeddedStart",
           "name" : "in 1",
           "visual" : {
-            "at" : { "x" : 64, "y" : 160 },
+            "at" : { "x" : 48, "y" : 208 },
             "labelOffset" : { "x" : 3, "y" : 23 }
           },
           "parentConnector" : "f7",
@@ -457,16 +468,194 @@
           "type" : "EmbeddedEnd",
           "name" : "out 1",
           "visual" : {
-            "at" : { "x" : 416, "y" : 160 },
+            "at" : { "x" : 416, "y" : 208 },
             "labelOffset" : { "x" : 3, "y" : 23 }
           },
           "parentConnector" : "f11"
+        }, {
+          "id" : "S10-f2",
+          "type" : "TaskSwitchEvent",
+          "name" : "Re-enter purchase request from view",
+          "config" : {
+            "task" : {
+              "skipTasklist" : true
+            }
+          },
+          "visual" : {
+            "at" : { "x" : 288, "y" : 320 },
+            "labelOffset" : { "x" : 137, "y" : 9 }
+          },
+          "connect" : [
+            { "id" : "S10-f6", "to" : "S10-f13" }
+          ]
+        }, {
+          "id" : "S10-g2",
+          "type" : "EmbeddedStart",
+          "visual" : {
+            "at" : { "x" : 288, "y" : 400 },
+            "labelOffset" : { "x" : 3, "y" : 23 }
+          },
+          "parentConnector" : "f18",
+          "connect" : [
+            { "id" : "S10-f5", "to" : "S10-f2" }
+          ]
+        }, {
+          "id" : "S10-g3",
+          "type" : "EmbeddedStart",
+          "visual" : {
+            "at" : { "x" : 288, "y" : 16 },
+            "labelOffset" : { "x" : 3, "y" : 23 }
+          },
+          "parentConnector" : "f22",
+          "connect" : [
+            { "id" : "S10-f9", "to" : "S10-f7" }
+          ]
+        }, {
+          "id" : "S10-f7",
+          "type" : "TaskSwitchEvent",
+          "name" : "Re-enter purchase request from payment",
+          "config" : {
+            "task" : {
+              "skipTasklist" : true
+            }
+          },
+          "visual" : {
+            "at" : { "x" : 288, "y" : 96 },
+            "labelOffset" : { "x" : 153, "y" : 9 }
+          },
+          "connect" : [
+            { "id" : "S10-f8", "to" : "S10-f13" }
+          ]
         } ],
       "visual" : {
-        "at" : { "x" : 232, "y" : 128 }
+        "at" : { "x" : 152, "y" : 128 }
       },
       "connect" : [
-        { "id" : "f11", "to" : "f2", "var" : "in1" }
+        { "id" : "f11", "to" : "S50" }
+      ]
+    }, {
+      "id" : "S50",
+      "type" : "UserBpmnElement",
+      "name" : "Display purchase request",
+      "elements" : [ {
+          "id" : "S50-g0",
+          "type" : "EmbeddedStart",
+          "visual" : {
+            "at" : { "x" : 64, "y" : 256 },
+            "labelOffset" : { "x" : 3, "y" : 23 }
+          },
+          "parentConnector" : "f11",
+          "connect" : [
+            { "id" : "S50-f0", "to" : "S50-f1" }
+          ]
+        }, {
+          "id" : "S50-g1",
+          "type" : "EmbeddedEnd",
+          "visual" : {
+            "at" : { "x" : 488, "y" : 256 },
+            "labelOffset" : { "x" : 3, "y" : 23 }
+          },
+          "parentConnector" : "f17"
+        }, {
+          "id" : "S50-f1",
+          "type" : "TaskSwitchEvent",
+          "name" : "View Purchase Request",
+          "config" : {
+            "task" : {
+              "skipTasklist" : true
+            }
+          },
+          "visual" : {
+            "at" : { "x" : 168, "y" : 256 },
+            "labelOffset" : { "x" : 14, "y" : 34 }
+          },
+          "connect" : [
+            { "id" : "S50-f4", "to" : "S50-f3" }
+          ]
+        }, {
+          "id" : "S50-f3",
+          "type" : "DialogCall",
+          "name" : "Read-only Purchase Request",
+          "config" : {
+            "dialog" : "com.axonivy.market.my.product.name.demo.PurchaseRequestDemo:start(Number,String,Number,Boolean)",
+            "call" : {
+              "map" : {
+                "param.quanity" : "in.quantity",
+                "param.name" : "in.productName",
+                "param.price" : "in.price",
+                "param.isReadOnly" : "true"
+              }
+            },
+            "output" : {
+              "map" : {
+                "out" : "in",
+                "out.isBackToSubmitPurchaseRequest" : "result.isBackToSubmitPurchaseRequest"
+              }
+            }
+          },
+          "visual" : {
+            "at" : { "x" : 336, "y" : 257 },
+            "size" : { "width" : 128, "height" : 62 }
+          },
+          "connect" : [
+            { "id" : "S50-f5", "to" : "S50-g1" }
+          ]
+        } ],
+      "visual" : {
+        "at" : { "x" : 384, "y" : 127 },
+        "size" : { "width" : 152, "height" : 63 }
+      },
+      "connect" : [
+        { "id" : "f17", "to" : "f16" }
+      ]
+    }, {
+      "id" : "f16",
+      "type" : "Alternative",
+      "name" : "Back to enter purchase values?",
+      "config" : {
+        "conditions" : {
+          "f18" : "in.isBackToSubmitPurchaseRequest"
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 584, "y" : 128 },
+        "labelOffset" : { "x" : 14, "y" : 34 }
+      },
+      "connect" : [
+        { "id" : "f18", "to" : "S10", "via" : [ { "x" : 584, "y" : 64 }, { "x" : 152, "y" : 64 } ], "label" : {
+            "name" : "Yes",
+            "segment" : 1.52,
+            "offset" : { "x" : -1, "y" : -10 }
+          } },
+        { "id" : "f19", "to" : "f2", "label" : {
+            "name" : "No",
+            "offset" : { "x" : 1, "y" : -10 }
+          }, "var" : "in1" }
+      ]
+    }, {
+      "id" : "f20",
+      "type" : "Alternative",
+      "name" : "Back to enter purchase values?",
+      "config" : {
+        "conditions" : {
+          "f22" : "in.isBackToSubmitPurchaseRequest",
+          "f21" : ""
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 1496, "y" : 224 },
+        "labelOffset" : { "y" : -24 }
+      },
+      "connect" : [
+        { "id" : "f21", "to" : "S30", "label" : {
+            "name" : "No",
+            "offset" : { "x" : 1, "y" : 14 }
+          }, "color" : "default" },
+        { "id" : "f22", "to" : "S10", "via" : [ { "x" : 1496, "y" : 304 }, { "x" : 152, "y" : 304 } ], "label" : {
+            "name" : "Yes",
+            "segment" : 1.52,
+            "offset" : { "x" : 24, "y" : 14 }
+          } }
       ]
     } ]
 }

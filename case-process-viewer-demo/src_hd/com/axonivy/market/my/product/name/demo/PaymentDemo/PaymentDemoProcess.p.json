@@ -23,6 +23,20 @@
             "out.quantity" : "param.quantity"
           }
         },
+        "result" : {
+          "params" : [
+            { "name" : "name", "type" : "String", "desc" : "" },
+            { "name" : "price", "type" : "Number", "desc" : "" },
+            { "name" : "quantity", "type" : "Number", "desc" : "" },
+            { "name" : "isBackToSubmitPurchaseRequest", "type" : "Boolean", "desc" : "" }
+          ],
+          "map" : {
+            "result.name" : "in.name",
+            "result.price" : "in.price",
+            "result.quantity" : "in.quantity",
+            "result.isBackToSubmitPurchaseRequest" : "in.isBackToSubmitPurchaseRequest"
+          }
+        },
         "guid" : "19A332015BA987C0"
       },
       "visual" : {
@@ -56,6 +70,35 @@
       "type" : "HtmlDialogExit",
       "visual" : {
         "at" : { "x" : 224, "y" : 160 },
+        "labelOffset" : { "x" : 10, "y" : 30 }
+      }
+    }, {
+      "id" : "f6",
+      "type" : "HtmlDialogEventStart",
+      "name" : "backToEnterPurchaseRequestValues",
+      "config" : {
+        "guid" : "19B54D7FD4348025",
+        "output" : {
+          "map" : {
+            "out" : "in",
+            "out.isBackToSubmitPurchaseRequest" : "true",
+            "out.name" : "in.name",
+            "out.price" : "in.price",
+            "out.quantity" : "in.quantity"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 256 }
+      },
+      "connect" : [
+        { "id" : "f8", "to" : "f7" }
+      ]
+    }, {
+      "id" : "f7",
+      "type" : "HtmlDialogExit",
+      "visual" : {
+        "at" : { "x" : 224, "y" : 256 },
         "labelOffset" : { "x" : 10, "y" : 30 }
       }
     } ]

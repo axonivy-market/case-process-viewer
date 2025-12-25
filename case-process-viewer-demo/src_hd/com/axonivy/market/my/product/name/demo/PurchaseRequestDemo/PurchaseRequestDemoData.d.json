@@ -12,5 +12,11 @@
   }, {
     "name" : "price",
     "type" : "Number"
+  }, {
+    "name" : "isReadOnly",
+    "type" : "Boolean"
+  }, {
+    "name" : "isBackToSubmitPurchaseRequest",
+    "type" : "Boolean"
   } ]
 }

@@ -44,6 +44,9 @@
           <p:commandLink id="cancel"
             actionListener="#{ivyWorkflowView.cancel()}" process="@this"
             value="#{ivy.cms.co('/Labels/Cancel')}" />
+          <p:commandButton id="back" actionListener="#{logic.backToEnterPurchaseRequestValues}"
+            value="#{ivy.cms.co('/Labels/BackToSubmitPurchaseRequest')}"
+            icon="pi pi-arrow-left" />
           <p:commandButton id="payment" actionListener="#{logic.close}"
             value="#{ivy.cms.co('/Labels/Payment')}" update="form"
             icon="pi pi-check" />
