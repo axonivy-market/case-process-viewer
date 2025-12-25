@@ -1,5 +1,6 @@
 Labels:
   Approve: Approve
+  BackToSubmitPurchaseRequest: Back to submit purchase request
   Cancel: Cancel
   Close: Close
   Order: Order
@@ -14,6 +15,7 @@ Labels:
   PurchaseRequestApproval: Purchase Request Approval
   PurchaseRequestCase: Purchase Request Case
   Reject: Reject
+  Submit: Submit
   Summary: Summary
 Processes:
   Process:
