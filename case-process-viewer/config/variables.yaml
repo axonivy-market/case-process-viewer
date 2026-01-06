@@ -2,6 +2,6 @@
 Variables:
   caseProcessViewer:
     passedColor: purple
-    activeColor: rgba(59, 130, 246, 0.25)
-    frequencyColor: green
+    activeColor: rgba(59, 130, 246)
+    frequencyColor: red
     frequencyTextColor: black
