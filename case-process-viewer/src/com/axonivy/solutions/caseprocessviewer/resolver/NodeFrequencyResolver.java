@@ -1,7 +1,5 @@
 package com.axonivy.solutions.caseprocessviewer.resolver;
 
-import static com.axonivy.solutions.caseprocessviewer.core.constants.CaseProcessViewerConstants.SLASH;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -15,11 +13,11 @@ import org.apache.commons.lang3.Strings;
 import com.axonivy.solutions.caseprocessviewer.bo.Node;
 import com.axonivy.solutions.caseprocessviewer.bo.Path;
 import com.axonivy.solutions.caseprocessviewer.bo.TaskPath;
+import com.axonivy.solutions.caseprocessviewer.core.constants.CaseProcessViewerConstants;
 import com.axonivy.solutions.caseprocessviewer.core.util.PIDUtils;
 import com.axonivy.solutions.caseprocessviewer.core.util.ProcessUtils;
 import com.axonivy.solutions.caseprocessviewer.enums.PathStatus;
 
-import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.process.model.connector.SequenceFlow;
 import ch.ivyteam.ivy.process.model.element.EmbeddedProcessElement;
 import ch.ivyteam.ivy.process.model.element.ProcessElement;
@@ -31,12 +29,12 @@ import ch.ivyteam.ivy.workflow.ITaskElement;
 import ch.ivyteam.ivy.workflow.ITaskSwitchEvent;
 
 @SuppressWarnings("restriction")
-public class PassedStatusNodeResolver {
+public class NodeFrequencyResolver {
   private static final Pattern SEQUENCE_FLOW_CONDITION_PATTERN = Pattern.compile("ivp==\\\"([^\\\"]+)\\\"");
   private List<Node> nodes;
   private List<ProcessElement> processElements;
 
-  public PassedStatusNodeResolver(List<Node> nodes, List<ProcessElement> processElements) {
+  public NodeFrequencyResolver(List<Node> nodes, List<ProcessElement> processElements) {
     Objects.requireNonNull(processElements, "ProcessElements must not be null");
     Objects.requireNonNull(nodes, "Nodes must not be empty");
     this.processElements = processElements;
@@ -44,46 +42,53 @@ public class PassedStatusNodeResolver {
   }
 
   /**
-   * Updates the passed status of nodes based on the execution paths found in the given cases. For each provided case,
-   * this method iterates through all associated tasks, identifies the shortest path in the process from the task's
-   * start to its end, and update passed status of each node
+   * Updates the frequency values of nodes based on the execution paths found in
+   * the given cases.
+   * For each provided case, this method iterates through all
+   * associated tasks, identifies the shortest path in the process from the task's
+   * start to its end, and increments the frequency for each node encountered
+   * along that path.
+   * After processing all cases and tasks, it recalculates the
+   * relative values for all nodes.
+   *
+   * @param cases the list of cases created from the selected process; if
+   *              {@code null} or empty, the method returns immediately
    */
-  public void updateNodeStatusOfCurrentIvyCase() {
-    List<ITask> finishedTasks = Ivy.wfCase().tasks().all().stream().filter(ITask::isPersistent).toList();
-    for (var task : finishedTasks) {
-      List<String> nodeIdsInPath = findShortestWayFromTaskStartToEnd(task, processElements);
-      updateStatusForNodeById(nodes, nodeIdsInPath);
+  public void updateFrequencyByTasks(List<ITask> tasks) {
+    if (CollectionUtils.isEmpty(tasks)) {
+      return;
     }
+
+      List<ITask> finishedTasks = tasks.stream().filter(ITask::isPersistent).toList();      
+      for (var task : finishedTasks) {
+        List<String> nodeIdsInPath = findShortestWayFromTaskStartToEnd(task, processElements);
+        updateFrequencyForNodeById(nodes, nodeIdsInPath);
+      }
     NodeResolver.updateRelativeValueForNodes(nodes);
   }
 
   /**
-   * Update passed status is true for node that ivyTask visited
+   * Increase the frequency of found node to 1
    * 
-   * @param nodes is list of nodes from selected ivyProcess
+   * @param nodes         is list of nodes from selected ivyProcess
    * @param nodeIdsInPath is list of nodeId that the ivyTask visited
    */
-  private static void updateStatusForNodeById(List<Node> nodes, List<String> nodeIdsInPath) {
-//    for (var nodeId : nodeIdsInPath) {
-//      nodes.stream().filter(node -> node.getId().contentEquals(nodeId)).forEach(node -> node.setPassed(true));
-//    }
+  private static void updateFrequencyForNodeById(List<Node> nodes, List<String> nodeIdsInPath) {
     for (var nodeId : nodeIdsInPath) {
-      nodes.stream().filter(node -> node.getId().contentEquals(nodeId)).forEach(node -> processPassedNodes(node));
+      nodes.stream().filter(node -> node.getId().contentEquals(nodeId))
+          .forEach(node -> node.setFrequency(node.getFrequency() + 1));
     }
-  }
-  
-  private static void processPassedNodes(Node node) {
-    node.setPassed(true);
-    node.setFrequency(node.getFrequency() + 1);
   }
 
   /**
-   * A task always has start point and end point - Start point can be a start or task element - End point can be a task
-   * or end element The function will find the shortest way to go from 'Start' to 'End' The found way will contain many
+   * A task always has start point and end point - Start point can be a start or
+   * task element - End point can be a task or end element The function will find
+   * the shortest way to go from 'Start' to 'End' The found way will contain many
    * path, each path contains list of node id
    * 
-   * @param task: selecting ivy task
-   * @param processElements: all process elements in the process the task belongs to
+   * @param task:            selecting ivy task
+   * @param processElements: all process elements in the process the task belongs
+   *                         to
    * @return foundNodeIdsInPath: list of nodes related to the found way
    */
   private static List<String> findShortestWayFromTaskStartToEnd(ITask task, List<ProcessElement> processElements) {
@@ -115,8 +120,8 @@ public class PassedStatusNodeResolver {
         Path foundTargetPath = taskPath.getPaths().stream().filter(Path::isFound).findAny().get();
         var startPathId = foundTargetPath.getStartPathId();
         foundNodeIdsInPath.addAll(foundTargetPath.getNodesInPath());
-        List<Path> excludePathsNotFound =
-            taskPath.getPaths().stream().filter(path -> path.getStatus() != PathStatus.NOT_FOUND).toList();
+        List<Path> excludePathsNotFound = taskPath.getPaths().stream()
+            .filter(path -> path.getStatus() != PathStatus.NOT_FOUND).toList();
         collectNodeIdsFromStartPathIdInFoundPaths(excludePathsNotFound, foundNodeIdsInPath, startPathId);
         return;
       }
@@ -133,14 +138,16 @@ public class PassedStatusNodeResolver {
   }
 
   /**
-   * Follows the process flow from the current node, updating the path with visited node IDs, and recursively traversing
-   * according to the process definition.
+   * Follows the process flow from the current node, updating the path with
+   * visited node IDs, and recursively traversing according to the process
+   * definition.
    *
-   * @param targetPid The target process element ID to search for.
-   * @param path The current path object being built and updated.
-   * @param currentFlow The outgoing sequence flow from the current node.
-   * @param subProcessCalls List of subprocess call elements for nested flow resolution.
-   * @param taskPath Additional metadata for the current task traversal.
+   * @param targetPid       The target process element ID to search for.
+   * @param path            The current path object being built and updated.
+   * @param currentFlow     The outgoing sequence flow from the current node.
+   * @param subProcessCalls List of subprocess call elements for nested flow
+   *                        resolution.
+   * @param taskPath        Additional metadata for the current task traversal.
    */
   private static void followNodes(String targetPid, Path path, SequenceFlow currentFlow,
       List<ProcessElement> subProcessCalls, TaskPath taskPath) {
@@ -217,7 +224,6 @@ public class PassedStatusNodeResolver {
 
     // Continue recursion with the (only) outgoing flow.
     if (!nextOutgoingFlows.isEmpty()) {
-      path.getNodesInPath().add(nextElementPid);
       followNodes(targetPid, path, nextOutgoingFlows.getFirst(), subProcessCalls, taskPath);
     }
   }
@@ -315,7 +321,7 @@ public class PassedStatusNodeResolver {
   private static List<SequenceFlow> detectOutGoingCreatedTaskFromTaskGetaway(String taskRequestPath,
       ProcessElement processElement) {
     List<SequenceFlow> outGoingFlows = processElement.getOutgoing();
-    var processElementIdPrefix = PIDUtils.getId(processElement.getPid()).concat(SLASH);
+    var processElementIdPrefix = PIDUtils.getId(processElement.getPid()).concat(CaseProcessViewerConstants.SLASH);
     for (var out : processElement.getOutgoing()) {
       String endCondition = out.getCondition();
       Matcher matcher = SEQUENCE_FLOW_CONDITION_PATTERN.matcher(out.getCondition());
@@ -343,15 +349,15 @@ public class PassedStatusNodeResolver {
   private static ProcessElement resolveNextElementForNode(List<String> nodesInPath, ProcessElement element,
       String currentFlowPid) {
     return switch (element) {
-      case EmbeddedProcessElement embedded -> ProcessUtils.getEmbeddedStartConnectToFlow(embedded, currentFlowPid);
-      case CallSubEnd callSubEnd -> element;
-      case SubProcessCall subProcess -> ProcessUtils.getStartElementFromSubProcessCall(subProcess);
-      case EmbeddedEnd embeddedEnd -> {
-        SequenceFlow outerFlow = embeddedEnd.getConnectedOuterSequenceFlow();
-        nodesInPath.add(ProcessUtils.getElementPid(outerFlow));
-        yield ProcessElement.class.cast(outerFlow.getTarget());
-      }
-      default -> element;
+    case EmbeddedProcessElement embedded -> ProcessUtils.getEmbeddedStartConnectToFlow(embedded, currentFlowPid);
+    case CallSubEnd callSubEnd -> element;
+    case SubProcessCall subProcess -> ProcessUtils.getStartElementFromSubProcessCall(subProcess);
+    case EmbeddedEnd embeddedEnd -> {
+      SequenceFlow outerFlow = embeddedEnd.getConnectedOuterSequenceFlow();
+      nodesInPath.add(ProcessUtils.getElementPid(outerFlow));
+      yield ProcessElement.class.cast(outerFlow.getTarget());
+    }
+    default -> element;
     };
   }
 
@@ -371,3 +377,4 @@ public class PassedStatusNodeResolver {
     this.processElements = processElements;
   }
 }
+

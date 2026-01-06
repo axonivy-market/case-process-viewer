@@ -1,305 +1,149 @@
 {
-  "processName": "PurcharseRequestDemo",
+  "processName": "ExampleProcess",
   "nodes": [
     {
-      "type": "element",
-      "id": "199DB82E409AE3B0-f0",
+      "type": "node",
+      "id": "1951D3C5BF69ADB3-f0",
+      "passed": false
+    },
+    {
+      "type": "node",
+      "id": "1951D3C5BF69ADB3-f19",
       "passed": true
     },
     {
-      "type": "element",
-      "id": "199DB82E409AE3B0-f1",
-      "passed": false
-    },
-    {
-      "type": "element",
-      "id": "199DB82E409AE3B0-f4",
-      "passed": false
-    },
-    {
-      "type": "element",
-      "id": "199DB82E409AE3B0-S10",
+      "type": "node",
+      "id": "1951D3C5BF69ADB3-f3",
       "passed": true
     },
     {
-      "type": "element",
-      "id": "199DB82E409AE3B0-S10-f3",
+      "type": "node",
+      "id": "1951D3C5BF69ADB3-f2",
       "passed": true
     },
     {
-      "type": "element",
-      "id": "199DB82E409AE3B0-S10-f13",
+      "type": "node",
+      "id": "1951D3C5BF69ADB3-f6",
       "passed": true
     },
     {
-      "type": "element",
-      "id": "199DB82E409AE3B0-S10-g0",
+      "type": "node",
+      "id": "1951D3C5BF69ADB3-f5",
       "passed": true
     },
     {
-      "type": "element",
-      "id": "199DB82E409AE3B0-S10-g1",
+      "type": "node",
+      "id": "1951D3C5BF69ADB3-f7",
       "passed": true
     },
     {
-      "type": "element",
-      "id": "199DB82E409AE3B0-S30",
-      "passed": false
-    },
-    {
-      "type": "element",
-      "id": "199DB82E409AE3B0-S30-g0",
-      "passed": false
-    },
-    {
-      "type": "element",
-      "id": "199DB82E409AE3B0-S30-g1",
-      "passed": false
-    },
-    {
-      "type": "element",
-      "id": "199DB82E409AE3B0-S30-f1",
-      "passed": false
-    },
-    {
-      "type": "element",
-      "id": "199DB82E409AE3B0-S30-f3",
-      "passed": false
-    },
-    {
-      "type": "element",
-      "id": "199DB82E409AE3B0-S40",
-      "passed": false
-    },
-    {
-      "type": "element",
-      "id": "199DB82E409AE3B0-S40-g0",
-      "passed": false
-    },
-    {
-      "type": "element",
-      "id": "199DB82E409AE3B0-S40-g1",
-      "passed": false
-    },
-    {
-      "type": "element",
-      "id": "199DB82E409AE3B0-S40-f1",
-      "passed": false
-    },
-    {
-      "type": "element",
-      "id": "199DB82E409AE3B0-S40-f3",
-      "passed": false
-    },
-    {
-      "type": "element",
-      "id": "199DB82E409AE3B0-f14",
-      "passed": false
-    },
-    {
-      "type": "element",
-      "id": "199DB82E409AE3B0-f10",
+      "type": "node",
+      "id": "1951D3C5BF69ADB3-f26",
       "passed": true
     },
     {
-      "type": "element",
-      "id": "199DB82E409AE3B0-f3",
-      "passed": true
-    },
-    {
-      "type": "element",
-      "id": "199DB82E409AE3B0-f2",
-      "passed": true
-    },
-    {
-      "type": "element",
-      "id": "199DB82E409AE3B0-f2/TaskA.ivp",
+      "type": "node",
+      "id": "1951D3C5BF69ADB3-f16",
       "passed": false
     },
     {
-      "type": "element",
-      "id": "199DB82E409AE3B0-f2/TaskB.ivp",
+      "type": "node",
+      "id": "1951D3C5BF69ADB3-f8",
       "passed": false
     },
     {
-      "type": "element",
-      "id": "199DB82E409AE3B0-S41",
-      "passed": true
-    },
-    {
-      "type": "element",
-      "id": "199DB82E409AE3B0-S41-f23",
-      "passed": true
-    },
-    {
-      "type": "element",
-      "id": "199DB82E409AE3B0-S41-f19",
-      "passed": true
-    },
-    {
-      "type": "element",
-      "id": "199DB82E409AE3B0-S41-f22",
-      "passed": false
-    },
-    {
-      "type": "element",
-      "id": "199DB82E409AE3B0-S41-f17",
-      "passed": true
-    },
-    {
-      "type": "element",
-      "id": "199DB82E409AE3B0-S41-g0",
-      "passed": true
-    },
-    {
-      "type": "element",
-      "id": "199DB82E409AE3B0-S41-g1",
-      "passed": false
-    },
-    {
-      "type": "element",
-      "id": "199DB82E409AE3B0-S41-g2",
+      "type": "node",
+      "id": "1951D3C5BF69ADB3-f1",
       "passed": false
     },
     {
       "type": "arrow",
-      "id": "199DB82E409AE3B0-f7",
-      "passed": true
+      "id": "1951D3C5BF69ADB3-f15",
+      "passed": false,
+      "labelValue": "1",
+      "relatedValue": "0.5"
     },
     {
       "type": "arrow",
-      "id": "199DB82E409AE3B0-f6",
-      "passed": false
+      "id": "1951D3C5BF69ADB3-f20",
+      "passed": true,
+      "labelValue": "1",
+      "relatedValue": "0.5"
     },
     {
       "type": "arrow",
-      "id": "199DB82E409AE3B0-f5",
-      "passed": false
+      "id": "1951D3C5BF69ADB3-f13",
+      "passed": true,
+      "labelValue": "1",
+      "relatedValue": "0.5"
     },
     {
       "type": "arrow",
-      "id": "199DB82E409AE3B0-f11",
-      "passed": true
+      "id": "1951D3C5BF69ADB3-f12",
+      "passed": true,
+      "labelValue": "1",
+      "relatedValue": "0.5"
     },
     {
       "type": "arrow",
-      "id": "199DB82E409AE3B0-S10-f4",
-      "passed": true
+      "id": "1951D3C5BF69ADB3-f9",
+      "passed": true,
+      "labelValue": "1",
+      "relatedValue": "0.5"
     },
     {
       "type": "arrow",
-      "id": "199DB82E409AE3B0-S10-f1",
-      "passed": true
+      "id": "1951D3C5BF69ADB3-f27",
+      "passed": true,
+      "labelValue": "1",
+      "relatedValue": "0.5"
     },
     {
       "type": "arrow",
-      "id": "199DB82E409AE3B0-S10-f0",
-      "passed": true
+      "id": "1951D3C5BF69ADB3-f21",
+      "passed": false,
+      "labelValue": "1",
+      "relatedValue": "0.5"
     },
     {
       "type": "arrow",
-      "id": "199DB82E409AE3B0-f12",
-      "passed": false
+      "id": "1951D3C5BF69ADB3-f10",
+      "passed": true,
+      "labelValue": "1",
+      "relatedValue": "0.5"
     },
     {
       "type": "arrow",
-      "id": "199DB82E409AE3B0-S30-f0",
-      "passed": false
+      "id": "1951D3C5BF69ADB3-f11",
+      "passed": true,
+      "labelValue": "1",
+      "relatedValue": "0.5"
     },
     {
       "type": "arrow",
-      "id": "199DB82E409AE3B0-S30-f2",
-      "passed": false
+      "id": "1951D3C5BF69ADB3-f4",
+      "passed": true,
+      "labelValue": "1",
+      "relatedValue": "0.5"
     },
     {
       "type": "arrow",
-      "id": "199DB82E409AE3B0-S30-f4",
-      "passed": false
+      "id": "1951D3C5BF69ADB3-f18",
+      "passed": false,
+      "labelValue": "1",
+      "relatedValue": "0.5"
     },
     {
       "type": "arrow",
-      "id": "199DB82E409AE3B0-f8",
-      "passed": false
-    },
-    {
-      "type": "arrow",
-      "id": "199DB82E409AE3B0-S40-f0",
-      "passed": false
-    },
-    {
-      "type": "arrow",
-      "id": "199DB82E409AE3B0-S40-f2",
-      "passed": false
-    },
-    {
-      "type": "arrow",
-      "id": "199DB82E409AE3B0-S40-f4",
-      "passed": false
-    },
-    {
-      "type": "arrow",
-      "id": "199DB82E409AE3B0-f15",
-      "passed": false
-    },
-    {
-      "type": "arrow",
-      "id": "199DB82E409AE3B0-f28",
-      "passed": false
-    },
-    {
-      "type": "arrow",
-      "id": "199DB82E409AE3B0-f29",
-      "passed": true
-    },
-    {
-      "type": "arrow",
-      "id": "199DB82E409AE3B0-f9",
-      "passed": true
-    },
-    {
-      "type": "arrow",
-      "id": "199DB82E409AE3B0-f13",
-      "passed": true
-    },
-    {
-      "type": "arrow",
-      "id": "199DB82E409AE3B0-f30",
-      "passed": false
-    },
-    {
-      "type": "arrow",
-      "id": "199DB82E409AE3B0-S41-f24",
-      "passed": true
-    },
-    {
-      "type": "arrow",
-      "id": "199DB82E409AE3B0-S41-f2",
-      "passed": false
-    },
-    {
-      "type": "arrow",
-      "id": "199DB82E409AE3B0-S41-f20",
-      "passed": true
-    },
-    {
-      "type": "arrow",
-      "id": "199DB82E409AE3B0-S41-f21",
-      "passed": true
-    },
-    {
-      "type": "arrow",
-      "id": "199DB82E409AE3B0-S41-f0",
-      "passed": true
-    },
-    {
-      "type": "arrow",
-      "id": "199DB82E409AE3B0-S41-f1",
-      "passed": false
+      "id": "1951D3C5BF69ADB3-f17",
+      "passed": false,
+      "labelValue": "1",
+      "relatedValue": "0.5"
     }
   ],
   "activeColor": "#3B82F6",
   "passedColor": "#47C46B",
-  "activeElementIds": [
-    "199DB82E409AE3B0-f10"
-  ]
+  "activeElementIds": ["1951D3C5BF69ADB3-f3"],
+  "frequencyColor": "red",
+  "frequencyTextColor": "black"
 }

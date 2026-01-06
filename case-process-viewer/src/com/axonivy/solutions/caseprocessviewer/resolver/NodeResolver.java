@@ -1,8 +1,11 @@
 package com.axonivy.solutions.caseprocessviewer.resolver;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import org.apache.commons.collections4.CollectionUtils;
 
 import com.axonivy.solutions.caseprocessviewer.bo.Node;
 import com.axonivy.solutions.caseprocessviewer.core.constants.CaseProcessViewerConstants;
@@ -53,6 +56,45 @@ public class NodeResolver {
       }
     };
   }
+  
+  public static void updateRelativeValueForNodes(List<Node> nodes) {
+    if (CollectionUtils.isEmpty(nodes)) {
+      return;
+    }
+
+    int maxFrequency = 1;
+    for (Node node : nodes) {
+      if (node.getFrequency() > maxFrequency) {
+        maxFrequency = node.getFrequency();
+      }
+    }
+
+    for (Node node : nodes) {
+      node.setRelativeValue(String.valueOf(node.getFrequency() / maxFrequency));
+    }
+  }
+  
+  public static List<Node> updateNode(List<Node> nodes) {
+    if (CollectionUtils.isEmpty(nodes)) {
+      return new ArrayList<>();
+    }
+    nodes.forEach(node -> updateNodeByAnalysisType(node));
+    return nodes;
+  }
+  
+  public static void updateNodeByAnalysisType(Node node) {
+//    if (KpiType.FREQUENCY == analysisType) {
+      node.setLabelValue(String.valueOf(node.getFrequency()));
+//    }
+//    else {
+//      String medianDurationValue = DateUtils.convertDuration(node.getMedianDuration());
+//      node.setLabelValue(medianDurationValue);
+//      node.setFormattedMedianDuration(medianDurationValue);
+//    }
+//    if (Double.isNaN(node.getRelativeValue())) {
+//      node.setRelativeValue(AnalyserConstants.DEFAULT_INITIAL_STATISTIC_NUMBER);
+//    }
+  }
 
   public static Node convertSequenceFlowToNode(SequenceFlow flow) {
     Node node = createNode(ProcessUtils.getElementPid(flow), NodeType.ARROW);
@@ -61,9 +103,24 @@ public class NodeResolver {
     return node;
   }
 
+  public static Node convertSequenceFlowToNode2(SequenceFlow flow) {
+    Node node = createNode2(ProcessUtils.getElementPid(flow), flow.getName(), NodeType.ARROW);
+    node.setTargetNodeId(flow.getTarget().getPid().toString());
+    node.setSourceNodeId(flow.getSource().getPid().toString());
+    return node;
+  }
+
   private static Node createNode(String id, NodeType type) {
     Node node = new Node();
     node.setId(id);
+    node.setType(type);
+    return node;
+  }
+
+  private static Node createNode2(String id, String label, NodeType type) {
+    Node node = new Node();
+    node.setId(id);
+    node.setLabel(label);
     node.setType(type);
     return node;
   }
