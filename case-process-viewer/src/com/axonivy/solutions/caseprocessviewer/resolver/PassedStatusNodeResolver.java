@@ -54,7 +54,6 @@ public class PassedStatusNodeResolver {
       List<String> nodeIdsInPath = findShortestWayFromTaskStartToEnd(task, processElements);
       updateStatusForNodeById(nodes, nodeIdsInPath);
     }
-    NodeResolver.updateRelativeValueForNodes(nodes);
   }
 
   /**
@@ -64,9 +63,6 @@ public class PassedStatusNodeResolver {
    * @param nodeIdsInPath is list of nodeId that the ivyTask visited
    */
   private static void updateStatusForNodeById(List<Node> nodes, List<String> nodeIdsInPath) {
-//    for (var nodeId : nodeIdsInPath) {
-//      nodes.stream().filter(node -> node.getId().contentEquals(nodeId)).forEach(node -> node.setPassed(true));
-//    }
     for (var nodeId : nodeIdsInPath) {
       nodes.stream().filter(node -> node.getId().contentEquals(nodeId)).forEach(node -> processPassedNodes(node));
     }

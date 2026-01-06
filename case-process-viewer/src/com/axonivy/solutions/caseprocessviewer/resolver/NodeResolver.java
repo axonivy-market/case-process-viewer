@@ -57,23 +57,6 @@ public class NodeResolver {
     };
   }
 
-  public static void updateRelativeValueForNodes(List<Node> nodes) {
-    if (CollectionUtils.isEmpty(nodes)) {
-      return;
-    }
-
-    int maxFrequency = 1;
-    for (Node node : nodes) {
-      if (node.getFrequency() > maxFrequency) {
-        maxFrequency = node.getFrequency();
-      }
-    }
-
-    for (Node node : nodes) {
-      node.setRelativeValue(String.valueOf(node.getFrequency() / maxFrequency));
-    }
-  }
-
   public static List<Node> updateNode(List<Node> nodes) {
     if (CollectionUtils.isEmpty(nodes)) {
       return new ArrayList<>();

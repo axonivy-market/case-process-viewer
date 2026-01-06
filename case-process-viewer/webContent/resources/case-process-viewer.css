@@ -8,32 +8,6 @@
 
 /* Start - Custom css for active elements */
 
-/* .embeddedProcessElement.active .sprotty-node:not(.sprotty-task-node),
-  .scriptBpmnElement.active .sprotty-node:not(.sprotty-task-node),
-  .userBpmnElement.active .sprotty-node:not(.sprotty-task-node),
-  .manualBpmnElement.active .sprotty-node:not(.sprotty-task-node),
-  .sendBpmnElement.active .sprotty-node:not(.sprotty-task-node),
-  .ruleBpmnElement.active .sprotty-node:not(.sprotty-task-node),
-  .receiveBpmnElement.active .sprotty-node:not(.sprotty-task-node),
-  .taskSwitchGateway.active .sprotty-node:not(.sprotty-task-node),
-  .serviceBpmnElement.active .sprotty-node:not(.sprotty-task-node),
-  .genericBpmnElement.active .sprotty-node:not(.sprotty-task-node) {
-  fill: rgba(59, 130, 246, 0.25);
-} */
-
-.userTask.active .sprotty-node {
-  fill: rgba(59, 130, 246, 0.25);
-}
-
-.active circle.sprotty-node.sprotty-task-node {
-  /* stroke: #3B82F6 !important;
-  fill: rgba(59, 130, 246, 0.25); */
-}
-
-.passed circle.sprotty-node.sprotty-task-node {
-  /* stroke: #47C46B !important; */
-}
-
 .sprotty-graph {
   background: var(--glsp-editor-background);
 }

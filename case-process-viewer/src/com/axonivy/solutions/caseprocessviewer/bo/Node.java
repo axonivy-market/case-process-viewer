@@ -13,7 +13,6 @@ public class Node {
   private String id;
   private boolean passed;
   private String labelValue;
-  private String relativeValue;
   @JsonIgnore
   private List<String> outGoingPathIds = new ArrayList<>();
   @JsonIgnore
@@ -128,15 +127,7 @@ public class Node {
   public void setFrequency(int frequency) {
     this.frequency = frequency;
   }
-
-  public String getRelativeValue() {
-    return relativeValue;
-  }
-
-  public void setRelativeValue(String relativeValue) {
-    this.relativeValue = relativeValue;
-  }
-
+  
   @Override
   public String toString() {
     final var pattern =
