@@ -56,7 +56,7 @@ public class NodeResolver {
       }
     };
   }
-  
+
   public static void updateRelativeValueForNodes(List<Node> nodes) {
     if (CollectionUtils.isEmpty(nodes)) {
       return;
@@ -73,7 +73,7 @@ public class NodeResolver {
       node.setRelativeValue(String.valueOf(node.getFrequency() / maxFrequency));
     }
   }
-  
+
   public static List<Node> updateNode(List<Node> nodes) {
     if (CollectionUtils.isEmpty(nodes)) {
       return new ArrayList<>();
@@ -81,19 +81,9 @@ public class NodeResolver {
     nodes.forEach(node -> updateNodeByAnalysisType(node));
     return nodes;
   }
-  
+
   public static void updateNodeByAnalysisType(Node node) {
-//    if (KpiType.FREQUENCY == analysisType) {
-      node.setLabelValue(String.valueOf(node.getFrequency()));
-//    }
-//    else {
-//      String medianDurationValue = DateUtils.convertDuration(node.getMedianDuration());
-//      node.setLabelValue(medianDurationValue);
-//      node.setFormattedMedianDuration(medianDurationValue);
-//    }
-//    if (Double.isNaN(node.getRelativeValue())) {
-//      node.setRelativeValue(AnalyserConstants.DEFAULT_INITIAL_STATISTIC_NUMBER);
-//    }
+    node.setLabelValue(String.valueOf(node.getFrequency()));
   }
 
   public static Node convertSequenceFlowToNode(SequenceFlow flow) {
@@ -103,24 +93,9 @@ public class NodeResolver {
     return node;
   }
 
-  public static Node convertSequenceFlowToNode2(SequenceFlow flow) {
-    Node node = createNode2(ProcessUtils.getElementPid(flow), flow.getName(), NodeType.ARROW);
-    node.setTargetNodeId(flow.getTarget().getPid().toString());
-    node.setSourceNodeId(flow.getSource().getPid().toString());
-    return node;
-  }
-
   private static Node createNode(String id, NodeType type) {
     Node node = new Node();
     node.setId(id);
-    node.setType(type);
-    return node;
-  }
-
-  private static Node createNode2(String id, String label, NodeType type) {
-    Node node = new Node();
-    node.setId(id);
-    node.setLabel(label);
     node.setType(type);
     return node;
   }

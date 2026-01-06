@@ -11,7 +11,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.primefaces.PF;
 
 import com.axonivy.solutions.caseprocessviewer.bo.ProcessMiningData;
-import com.axonivy.solutions.caseprocessviewer.constants.ColorConstants;
+import com.axonivy.solutions.caseprocessviewer.constant.ColorVariableConstants;
 import com.axonivy.solutions.caseprocessviewer.core.bo.Process;
 import com.axonivy.solutions.caseprocessviewer.core.constants.CaseProcessViewerConstants;
 import com.axonivy.solutions.caseprocessviewer.core.internal.ProcessViewerBuilder;
@@ -61,22 +61,18 @@ public class CaseProcessViewerBean implements Serializable {
       processMiningData = new ProcessMiningData();
       processMiningData.setProcessId(selectedProcess.getId());
       processMiningData.setProcessName(selectedProcess.getName());
-//      processMiningData.setPassedColor("red");
-      processMiningData.setPassedColor(ColorConstants.PASSED_COLOR);
-      processMiningData.setActiveColor(ColorConstants.ACTIVE_COLOR);
-      processMiningData.setFrequencyColor(ColorConstants.FREQUENCY_COLOR);
-      processMiningData.setFrequencyTextColor(ColorConstants.FREQUENCY_TEXT_COLOR);
-//      processMiningData.setColors(colorPickerBean.getColorSegments());
-//      processMiningData.setTextColors(colorPickerBean.getTextColors());
-      
-     
+      processMiningData.setPassedColor(Ivy.var().get(ColorVariableConstants.PASSED_COLOR));
+      processMiningData.setActiveColor(Ivy.var().get(ColorVariableConstants.ACTIVE_COLOR));
+      processMiningData.setFrequencyColor(Ivy.var().get(ColorVariableConstants.FREQUENCY_COLOR));
+      processMiningData.setFrequencyTextColor(Ivy.var().get(ColorVariableConstants.FREQUENCY_TEXT_COLOR));
+
       var processElements = ProcessUtils.getProcessElementsOfFirstLayerFrom(process.getId(), process.getPmv());
       var allProcessElements = ProcessUtils.getAllProcessElements(processElements);
       processMiningData.setNodes(NodeUtils.buildNodes(allProcessElements));
       String targetElementId = Ivy.wfTask().getStart().getTaskElement().getProcessElementId();
       processMiningData
           .setActiveElementIds(ProcessUtils.getAllElementIdsContainElementId(targetElementId, processElements));
-      
+
       Ivy.log().error(targetElementId);
       processMiningData.getActiveElementIds().stream().forEach(i -> Ivy.log().warn(i));
     });
