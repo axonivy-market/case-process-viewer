@@ -12,14 +12,14 @@ Labels:
   ProductQuantity: Produktmenge
   PurchaseRequest: Kaufanforderung
   PurchaseRequestApproval: Genehmigung von Kaufanfragen
-  PurchaseRequestCase: Kaufanfragefall
+  PurchaseRequestCase: Bestellanfrage
   Reject: Ablehnen
   Summary: Zusammenfassung
 Processes:
   Process:
     PurcharseRequestDemo:
       Cases:
-        name: Demo anfordern
+        name: Demo Bestellanfrage
       Tasks:
         AccountingApproval:
           name: Freigabe
@@ -38,4 +38,4 @@ Processes:
         Summary:
           name: Zusammenfassung
       description: Demoprojekt für den Caseanalyser
-      name: Demo anfordern
+      name: Demo Bestellanfrage
