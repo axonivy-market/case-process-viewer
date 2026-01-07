@@ -52,7 +52,6 @@ public class CaseProcessViewerBean implements Serializable {
     builder.pmv(pmv.getName());
     builder.projectPath(process.getProjectRelativePath());
     bpmnIframeSourceUrl = builder.toURI().toString();
-    Ivy.log().warn(bpmnIframeSourceUrl);
     PF.current().executeScript(CaseProcessViewerConstants.UPDATE_IFRAME_SOURCE_METHOD_CALL);
   }
 
@@ -72,9 +71,6 @@ public class CaseProcessViewerBean implements Serializable {
       String targetElementId = Ivy.wfTask().getStart().getTaskElement().getProcessElementId();
       processMiningData
           .setActiveElementIds(ProcessUtils.getAllElementIdsContainElementId(targetElementId, processElements));
-
-      Ivy.log().error(targetElementId);
-      processMiningData.getActiveElementIds().stream().forEach(i -> Ivy.log().warn(i));
     });
   }
 
