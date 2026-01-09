@@ -46,7 +46,7 @@ Key Features:
 The Case Process Viewer supports customizable colors through variables. This allows you to adapt the visual appearance to your application’s theme without changing code.
 
 | Color key | Description | Default value |
-|-----------|------|
+|-----------|-------------| ------------- |
 | `passedColor` | `Color used for arrows that have been run through` | `#47C46B` |
 | `activeColor` | `Color used to highlight the currently active process element` | `#47C46B` |
 | `frequencyColor` | `Background color used for frequency label` | `#47C46B` |
