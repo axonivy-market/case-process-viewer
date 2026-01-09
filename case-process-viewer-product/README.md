@@ -16,7 +16,7 @@ Key Features:
 
 - Simple to configure and integrate into existing Ivy user interfaces
 
-![purchase-request-approval](images/purchase-request-approval.png)
+![purchase-request-with-label](images/purchase-request-with-label.png)
 
 ## Demo
 
