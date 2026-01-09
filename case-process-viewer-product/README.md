@@ -25,7 +25,6 @@ Key Features:
 
 ![purchase-request](images/purchase-request.png)
 
-
 ## Setup
 
 **Add the Component to Your JSF Page**
@@ -35,8 +34,7 @@ Key Features:
    ```
    <ic:com.axonivy.solutions.caseprocessviewer.component.ProcessViewer header="Case Process Viewer" />
    ```
-
-
+<br>
 
 **Component Attributes**
 
@@ -44,7 +42,7 @@ Key Features:
 |-----------|------|----------|-------------|
 | `header` | `String` | No | Text label for the header (default: "Case Process Viewer") |
 
-
+<br>
 
 **Color configuration**
 
@@ -57,7 +55,7 @@ The Case Process Viewer supports customizable colors through variables. This all
 | `frequencyColor` | Background color used for frequency label | #47C46B |
 | `frequencyTextColor` | Text color used for frequency values | #000000 |
 
-
+<br>
 
 ```
 @variables.yaml@
