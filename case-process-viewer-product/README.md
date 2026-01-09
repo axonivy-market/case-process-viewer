@@ -22,6 +22,7 @@ Key Features:
 
 1. Start **Purchase Request Demo** process
 2. Start **Purchase Request** task to view the status of the current task.
+
 ![purchase-request](images/purchase-request.png)
 
 
@@ -35,11 +36,15 @@ Key Features:
    <ic:com.axonivy.solutions.caseprocessviewer.component.ProcessViewer header="Case Process Viewer" />
    ```
 
+
+
 **Component Attributes**
 
 | Attribute | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `header` | `String` | No | Text label for the header (default: "Case Process Viewer") |
+
+
 
 **Color configuration**
 
@@ -51,6 +56,8 @@ The Case Process Viewer supports customizable colors through variables. This all
 | `activeColor` | Color used to highlight the currently active process element | #47C46B |
 | `frequencyColor` | Background color used for frequency label | #47C46B |
 | `frequencyTextColor` | Text color used for frequency values | #000000 |
+
+
 
 ```
 @variables.yaml@
