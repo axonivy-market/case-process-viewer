@@ -12,6 +12,7 @@ public class Node {
   private NodeType type;
   private String id;
   private boolean passed;
+  private String labelValue;
   @JsonIgnore
   private List<String> outGoingPathIds = new ArrayList<>();
   @JsonIgnore
@@ -24,6 +25,10 @@ public class Node {
   private boolean isTaskSwitchGateway;
   @JsonIgnore
   private String requestPath;
+  @JsonIgnore
+  private String label;
+  @JsonIgnore
+  private int frequency;
 
   public String getSourceNodeId() {
     return sourceNodeId;
@@ -99,6 +104,30 @@ public class Node {
     this.requestPath = requestPath;
   }
 
+  public String getLabelValue() {
+    return labelValue;
+  }
+
+  public void setLabelValue(String labelValue) {
+    this.labelValue = labelValue;
+  }
+
+  public String getLabel() {
+    return label;
+  }
+
+  public void setLabel(String label) {
+    this.label = label;
+  }
+
+  public int getFrequency() {
+    return frequency;
+  }
+
+  public void setFrequency(int frequency) {
+    this.frequency = frequency;
+  }
+  
   @Override
   public String toString() {
     final var pattern =

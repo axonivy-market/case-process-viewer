@@ -13,6 +13,8 @@ public class ProcessMiningData {
   private List<Node> nodes;
   private String activeColor;
   private String passedColor;
+  private String frequencyColor;
+  private String frequencyTextColor;
   private List<String> activeElementIds;
 
   public ProcessMiningData() {}
@@ -55,6 +57,22 @@ public class ProcessMiningData {
 
   public void setPassedColor(String passedColor) {
     this.passedColor = passedColor;
+  }
+
+  public String getFrequencyColor() {
+    return frequencyColor;
+  }
+
+  public void setFrequencyColor(String frequencyColor) {
+    this.frequencyColor = frequencyColor;
+  }
+
+  public String getFrequencyTextColor() {
+    return frequencyTextColor;
+  }
+
+  public void setFrequencyTextColor(String frequencyTextColor) {
+    this.frequencyTextColor = frequencyTextColor;
   }
 
   public List<String> getActiveElementIds() {

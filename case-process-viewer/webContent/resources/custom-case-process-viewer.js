@@ -182,7 +182,7 @@ function removeDefaultFrequency() {
     });
 }
 
-function santizeDiagram() {
+function sanitizeDiagram() {
   removeDefaultFrequency();
   removeExecutedClass();
 }
@@ -202,7 +202,7 @@ function loadIframe(recheckIndicator) {
   if (recheckIndicator) {
     const iframeDoc = iframe.contentDocument;
     if (iframeDoc.readyState == COMPLETE) {
-      santizeDiagram();
+      sanitizeDiagram();
       clearTimeout(recheckFrameTimer);
       const iframeRootUrl = iframe.contentWindow.location.href;
       return;

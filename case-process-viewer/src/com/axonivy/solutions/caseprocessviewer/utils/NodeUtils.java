@@ -18,8 +18,9 @@ public class NodeUtils {
   public static List<Node> buildNodes(List<ProcessElement> processElements) {
     List<SequenceFlow> sequenceFlows = ProcessUtils.getSequenceFlowsFrom(processElements);
     List<Node> nodes = NodeResolver.convertToNodes(processElements, sequenceFlows);
-    var nodeResolver = new PassedStatusNodeResolver(nodes, processElements);
-    nodeResolver.updateNodeStatusOfCurrentIvyCase();
-    return nodeResolver.getNodes();
+    
+    var pasedStatusnodeResolver = new PassedStatusNodeResolver(nodes, processElements);
+    pasedStatusnodeResolver.updateNodeStatusOfCurrentIvyCase();
+    return NodeResolver.updateNode(nodes);
   }
 }

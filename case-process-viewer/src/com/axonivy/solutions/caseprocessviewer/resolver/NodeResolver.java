@@ -1,8 +1,11 @@
 package com.axonivy.solutions.caseprocessviewer.resolver;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import org.apache.commons.collections4.CollectionUtils;
 
 import com.axonivy.solutions.caseprocessviewer.bo.Node;
 import com.axonivy.solutions.caseprocessviewer.core.constants.CaseProcessViewerConstants;
@@ -52,6 +55,18 @@ public class NodeResolver {
         yield List.of(node);
       }
     };
+  }
+
+  public static List<Node> updateNode(List<Node> nodes) {
+    if (CollectionUtils.isEmpty(nodes)) {
+      return new ArrayList<>();
+    }
+    nodes.forEach(node -> updateNodeByAnalysisType(node));
+    return nodes;
+  }
+
+  public static void updateNodeByAnalysisType(Node node) {
+    node.setLabelValue(String.valueOf(node.getFrequency()));
   }
 
   public static Node convertSequenceFlowToNode(SequenceFlow flow) {

@@ -19,5 +19,9 @@
     "name" : "isPaid",
     "type" : "Boolean",
     "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "isBackToSubmitPurchaseRequest",
+    "type" : "Boolean",
+    "modifiers" : [ "PERSISTENT" ]
   } ]
 }

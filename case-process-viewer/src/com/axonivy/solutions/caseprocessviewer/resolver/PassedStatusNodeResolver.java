@@ -64,8 +64,13 @@ public class PassedStatusNodeResolver {
    */
   private static void updateStatusForNodeById(List<Node> nodes, List<String> nodeIdsInPath) {
     for (var nodeId : nodeIdsInPath) {
-      nodes.stream().filter(node -> node.getId().contentEquals(nodeId)).forEach(node -> node.setPassed(true));
+      nodes.stream().filter(node -> node.getId().contentEquals(nodeId)).forEach(node -> processPassedNodes(node));
     }
+  }
+  
+  private static void processPassedNodes(Node node) {
+    node.setPassed(true);
+    node.setFrequency(node.getFrequency() + 1);
   }
 
   /**

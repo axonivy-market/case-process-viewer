@@ -1,5 +1,6 @@
 Labels:
   Approve: Genehmigen
+  BackToSubmitPurchaseRequest: Zurück zur Kaufanfrage
   Cancel: Abbrechen
   Close: Schließen
   Order: Bestellung
@@ -14,6 +15,7 @@ Labels:
   PurchaseRequestApproval: Genehmigung von Kaufanfragen
   PurchaseRequestCase: Bestellanfrage
   Reject: Ablehnen
+  Submit: Einreichen
   Summary: Zusammenfassung
 Processes:
   Process:
