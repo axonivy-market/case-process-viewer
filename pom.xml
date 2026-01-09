@@ -7,15 +7,15 @@
   <packaging>pom</packaging>
 
   <modules>
-    <module>${project.name}-core</module>
-    <module>${project.name}</module>
-    <module>${project.name}-demo</module>
-    <module>${project.name}-test</module>
-    <module>${project.name}-product</module>
+    <module>case-process-viewer-core</module>
+    <module>case-process-viewer</module>
+    <module>case-process-viewer-demo</module>
+    <module>case-process-viewer-test</module>
+    <module>case-process-viewer-product</module>
   </modules>
 
   <scm>
-    <developerConnection>scm:git:https://github.com/axonivy-market/${project.name}.git</developerConnection>
+    <developerConnection>scm:git:https://github.com/axonivy-market/case-process-viewer.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
 
