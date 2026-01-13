@@ -57,6 +57,8 @@ The component accepts the following color formats for the variables above:
 - 6-digit hex: `#RRGGBB` (e.g. `#00FF88`)
 - 8-digit hex (with alpha): `#RRGGBBAA` (e.g. `#00FF88CC`)
 - `rgb()` function: `rgb(r, g, b)` where `r`, `g`, `b` are integers 0–255 (e.g. `rgb(0, 255, 136)`).
+- `rgba()` function: `rgba(r, g, b, a)` where `r`, `g`, `b` are integers 0–255 and `a` is a number between 0 and 1 (e.g. `rgba(0, 255, 136, 0.5)`).
+- Named color strings: common CSS color names like `red`, `green`, `blue`, `transparent` (e.g. `red`).
 
 Use any of these formats in your `variables.yaml` to configure the colors.
 
