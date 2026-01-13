@@ -48,6 +48,18 @@ Key Features:
 
 The Case Process Viewer supports customizable colors through variables. This allows you to adapt the visual appearance to your application’s theme without changing code.
 
+**Accepted color syntax**
+
+The component accepts the following color formats for the variables above:
+
+- 3-digit hex: `#RGB` (e.g. `#0F8`)
+- 4-digit hex (with alpha): `#RGBA` (e.g. `#0F8C`)
+- 6-digit hex: `#RRGGBB` (e.g. `#00FF88`)
+- 8-digit hex (with alpha): `#RRGGBBAA` (e.g. `#00FF88CC`)
+- `rgb()` function: `rgb(r, g, b)` where `r`, `g`, `b` are integers 0–255 (e.g. `rgb(0, 255, 136)`).
+
+Use any of these formats in your `variables.yaml` to configure the colors.
+
 | Color key | Description | Default value |
 |-----------|-------------| ------------- |
 | `passedColor` | Color used for arrows that have been run through | `#47C46B` |
