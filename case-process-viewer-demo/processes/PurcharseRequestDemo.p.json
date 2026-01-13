@@ -67,7 +67,6 @@
       "elements" : [ {
           "id" : "S30-g0",
           "type" : "EmbeddedStart",
-          "name" : "",
           "visual" : {
             "at" : { "x" : 64, "y" : 256 },
             "labelOffset" : { "x" : 3, "y" : 23 }
@@ -79,7 +78,6 @@
         }, {
           "id" : "S30-g1",
           "type" : "EmbeddedEnd",
-          "name" : "",
           "visual" : {
             "at" : { "x" : 480, "y" : 256 },
             "labelOffset" : { "x" : 3, "y" : 23 }

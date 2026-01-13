@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.axonivy.ivy.api</groupId>
     <artifactId>ivy-project-parent</artifactId>
-    <version>13.2.1-SNAPSHOT</version>
+    <version>13.2.0</version>
     <relativePath></relativePath>
   </parent>
   <groupId>com.axonivy.solutions.caseprocessviewer</groupId>
@@ -13,7 +13,7 @@
   <version>13.2.0-SNAPSHOT</version>
   <packaging>iar</packaging>
   <properties>
-    <project.build.plugin.version>12.0.8</project.build.plugin.version>
+    <project.build.plugin.version>13.2.0</project.build.plugin.version>
   </properties>
   <dependencies>
     <dependency>
@@ -24,6 +24,20 @@
     <dependency>
       <groupId>com.axonivy.ivy.api</groupId>
       <artifactId>ivy-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.axonivy.ivy.api.restricted</groupId>
+      <artifactId>ivy-process-model-api</artifactId>
+      <version>13.2.0</version>
+    </dependency>
+    <dependency>
+     <groupId>com.axonivy.ivy.spi</groupId>
+     <artifactId>ivy-process-extension-spi</artifactId>
+   </dependency>
+   <dependency>
+      <groupId>com.axonivy.ivy.api</groupId>
+      <artifactId>ivy-runtime</artifactId>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
   <repositories>
