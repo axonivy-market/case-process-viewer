@@ -4,7 +4,11 @@ Variables:
     axonivy:
       solutions:
         caseProcessViewer:
+          # Color used for arrows that have been run through
           passedColor: ""
+          # Color used to highlight the currently active process element
           activeColor: ""
+          # Background color used for frequency label
           frequencyColor: ""
+          # Text color used for frequency values
           frequencyTextColor: ""
