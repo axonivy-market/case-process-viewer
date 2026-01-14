@@ -20,12 +20,13 @@ public class WebBaseTest {
   }
 
   protected void openLoginPage() {
-    open(EngineUrl.base() + "/dev-workflow-ui/faces/loginTable.xhtml");
+    open(EngineUrl.base() + "/dev-workflow-ui/faces/login.xhtml");
   }
 
-  protected void loginWithUser(String username) {
-    $("tbody#loginTable\\:users_data").shouldBe(visible).$$("tr td").findBy(Condition.text(username)).shouldBe(enabled)
-        .click();
+  protected void loginWithUser(String username, String password) {
+    $("#loginForm\\:userName").shouldBe(visible).setValue(username);
+    $("#loginForm\\:password").shouldBe(visible).setValue(password);
+    $("#loginForm\\:login").shouldBe(enabled).click();
   }
 
   protected void startFirstTask() {
