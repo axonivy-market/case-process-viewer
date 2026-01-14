@@ -48,9 +48,9 @@ Key Features:
 
 The Case Process Viewer supports customizable colors through variables. This allows you to adapt the visual appearance to your application’s theme without changing code.
 
-**Accepted color syntax**
+**Accepted color formats**
 
-The component accepts the following color formats for the variables above:
+The component accepts the following color formats:
 
 - 3-digit hex: `#RGB` (e.g. `#0F8`)
 - 4-digit hex (with alpha): `#RGBA` (e.g. `#0F8C`)
@@ -58,7 +58,7 @@ The component accepts the following color formats for the variables above:
 - 8-digit hex (with alpha): `#RRGGBBAA` (e.g. `#00FF88CC`)
 - `rgb()` function: `rgb(r, g, b)` where `r`, `g`, `b` are integers 0–255 (e.g. `rgb(0, 255, 136)`).
 - `rgba()` function: `rgba(r, g, b, a)` where `r`, `g`, `b` are integers 0–255 and `a` is a number between 0 and 1 (e.g. `rgba(0, 255, 136, 0.5)`).
-- Named color strings: common CSS color names like `red`, `green`, `blue`, `transparent` (e.g. `red`).
+- Named color strings: common CSS color names like `red`, `green`, `blue`.
 
 Use any of these formats in your `variables.yaml` to configure the colors.
 
