@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.axonivy.ivy.api</groupId>
+    <artifactId>ivy-project-parent</artifactId>
+    <version>13.2.0</version>
+    <relativePath></relativePath>
+  </parent>
   <groupId>com.axonivy.solutions.caseprocessviewer</groupId>
   <artifactId>case-process-viewer-test</artifactId>
-  <version>12.0.13-SNAPSHOT</version>
+  <version>13.2.0-SNAPSHOT</version>
   <packaging>iar-integration-test</packaging>
-  <properties>
-    <tester.version>12.0.2</tester.version>
-    <project.build.plugin.version>12.0.8</project.build.plugin.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
   <dependencies>
     <dependency>
       <groupId>com.axonivy.solutions.caseprocessviewer</groupId>
@@ -18,25 +20,41 @@
       <type>iar</type>
     </dependency>
     <dependency>
-      <groupId>com.axonivy.ivy.test</groupId>
-      <artifactId>unit-tester</artifactId>
-      <version>${tester.version}</version>
+      <groupId>com.axonivy.ivy.api.test</groupId>
+      <artifactId>ivy-test-api</artifactId>
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>com.axonivy.ivy.webtest</groupId>
-      <artifactId>web-tester</artifactId>
-      <version>${tester.version}</version>
+      <groupId>com.axonivy.ivy.api.test</groupId>
+      <artifactId>ivy-web-test-api</artifactId>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.axonivy.ivy.api</groupId>
+      <artifactId>ivy-api</artifactId>
     </dependency>
   </dependencies>
   <repositories>
+    <repository>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>central</id>
+      <url>https://repo.maven.apache.org/maven2</url>
+    </repository>
     <repository>
       <snapshots>
         <updatePolicy>always</updatePolicy>
       </snapshots>
       <id>sonatype</id>
       <url>https://central.sonatype.com/repository/maven-snapshots</url>
+    </repository>
+    <repository>
+      <snapshots>
+        <updatePolicy>always</updatePolicy>
+      </snapshots>
+      <id>maven.axonivy.com</id>
+      <url>https://maven.axonivy.com</url>
     </repository>
   </repositories>
   <pluginRepositories>
@@ -54,23 +72,15 @@
       <plugin>
         <groupId>com.axonivy.ivy.ci</groupId>
         <artifactId>project-build-plugin</artifactId>
-        <version>${project.build.plugin.version}</version>
         <extensions>true</extensions>
-      <configuration>
+        <configuration>
           <encoding>UTF-8</encoding>
           <compilerWarnings>false</compilerWarnings>
         </configuration>
       </plugin>
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.0.0-M4</version>
-        <configuration>
-          <argLine>
-            -Dtest.engine.url=${test.engine.url}
-            -Dtest.engine.app=caseprocessviewertest
-          </argLine>
-        </configuration>
         <executions>
           <execution>
             <id>default-test</id>
@@ -87,6 +97,10 @@
             </goals>
           </execution>
         </executions>
+        <configuration>
+          <argLine>-Dtest.engine.url=${test.engine.url}
+            -Dtest.engine.app=caseprocessviewertest</argLine>
+        </configuration>
       </plugin>
     </plugins>
   </build>

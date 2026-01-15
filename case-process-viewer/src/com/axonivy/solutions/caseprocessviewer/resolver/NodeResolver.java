@@ -40,7 +40,7 @@ public class NodeResolver {
         String elementId = taskSwitchGateway.getPid().toString();
         List<Node> taskNodes = taskSwitchGateway.getAllTaskConfigs().stream()
             .map(task -> createNode(
-                elementId + CaseProcessViewerConstants.SLASH + task.getTaskIdentifier().getTaskIvpLinkName(),
+                elementId + CaseProcessViewerConstants.SLASH + task.identifier().getTaskIvpLinkName(),
                 NodeType.ELEMENT))
             .collect(Collectors.toList());
         taskNodes.add(0, node);

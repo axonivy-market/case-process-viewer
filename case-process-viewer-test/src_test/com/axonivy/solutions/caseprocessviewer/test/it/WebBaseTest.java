@@ -6,7 +6,6 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 import com.axonivy.ivy.webtest.engine.EngineUrl;
-import com.codeborne.selenide.Condition;
 
 public class WebBaseTest {
   protected static final String PROCESS_TEST_PATH = "/case-process-viewer-test/19A52DA5B971F827/start.ivp";
@@ -20,12 +19,13 @@ public class WebBaseTest {
   }
 
   protected void openLoginPage() {
-    open(EngineUrl.base() + "/dev-workflow-ui/faces/loginTable.xhtml");
+    open(EngineUrl.base() + "/dev-workflow-ui/faces/login.xhtml");
   }
 
-  protected void loginWithUser(String username) {
-    $("tbody#loginTable\\:users_data").shouldBe(visible).$$("tr td").findBy(Condition.text(username)).shouldBe(enabled)
-        .click();
+  protected void loginWithUser(String username, String password) {
+    $("#loginForm\\:userName").shouldBe(visible).setValue(username);
+    $("#loginForm\\:password").shouldBe(visible).setValue(password);
+    $("#loginForm\\:login").shouldBe(enabled).click();
   }
 
   protected void startFirstTask() {

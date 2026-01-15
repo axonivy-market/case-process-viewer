@@ -21,7 +21,7 @@ public class CaseProcessViewerWebTest extends WebBaseTest {
   @Test
   void testCaseProcessViewerOnProcessTest() {
     openLoginPage();
-    loginWithUser("Developer user");
+    loginWithUser("Developer", "Developer");
     startProcessTest();
     openTasksPage();
     startFirstTask();
