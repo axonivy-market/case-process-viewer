@@ -12,10 +12,6 @@
   <artifactId>case-process-viewer-test</artifactId>
   <version>13.2.0-SNAPSHOT</version>
   <packaging>iar-integration-test</packaging>
-  <properties>
-    <tester.version>13.2.0</tester.version>
-    <project.build.plugin.version>13.2.0</project.build.plugin.version>
-  </properties>
   <dependencies>
     <dependency>
       <groupId>com.axonivy.solutions.caseprocessviewer</groupId>

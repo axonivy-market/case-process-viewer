@@ -22,9 +22,6 @@
       <url>https://nexus.axonivy.com/repository/maven-snapshots/</url>
     </snapshotRepository>
   </distributionManagement>
-  <properties>
-    <project.build.plugin.version>13.2.0</project.build.plugin.version>
-  </properties>
   <dependencies>
     <dependency>
       <groupId>com.axonivy.ivy.api</groupId>

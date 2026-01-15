@@ -6,7 +6,6 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 import com.axonivy.ivy.webtest.engine.EngineUrl;
-import com.codeborne.selenide.Condition;
 
 public class WebBaseTest {
   protected static final String PROCESS_TEST_PATH = "/case-process-viewer-test/19A52DA5B971F827/start.ivp";
