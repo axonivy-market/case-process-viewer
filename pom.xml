@@ -3,7 +3,7 @@
   <groupId>com.axonivy.solutions.caseprocessviewer</groupId>
   <name>case-process-viewer</name>
   <artifactId>case-process-viewer-modules</artifactId>
-  <version>13.2.1</version>
+  <version>13.2.2-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <modules>
@@ -16,7 +16,7 @@
 
   <scm>
     <developerConnection>scm:git:https://github.com/axonivy-market/case-process-viewer.git</developerConnection>
-    <tag>v13.2.1</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <build>
