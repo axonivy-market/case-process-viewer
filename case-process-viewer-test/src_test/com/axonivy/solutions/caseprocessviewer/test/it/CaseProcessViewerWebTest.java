@@ -88,6 +88,7 @@ public class CaseProcessViewerWebTest extends WebBaseTest {
     $(DEMO_CLOSE_ELEMENT_ID).shouldBe(visible, Duration.ofSeconds(2)).shouldBe(enabled).click();
   }
 
+  @Override
   protected void startTask(String taskName) {
     super.startTask(taskName);
     $("span#iFrameForm\\:frameTaskName").shouldBe(visible).shouldHave(text(taskName));
