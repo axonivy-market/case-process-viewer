@@ -6,6 +6,8 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
+import java.time.Duration;
+
 import com.axonivy.ivy.webtest.engine.EngineUrl;
 
 public class WebBaseTest {
@@ -37,7 +39,8 @@ public class WebBaseTest {
 
   protected void startTask(String taskName) {
     openTasksPage();
-    $("#tasksForm\\:tasks_data").$$("tr td span").findBy(text(taskName)).shouldBe(visible).shouldBe(enabled).click();
-    $("#actionMenuForm\\:taskStartBtn").shouldBe(enabled).click();
+    $("#tasksForm\\:tasks_data").$$("tr td span").findBy(text(taskName)).shouldBe(visible, Duration.ofSeconds(2))
+        .shouldBe(enabled).click();
+    $("#actionMenuForm\\:taskStartBtn").shouldBe(enabled, Duration.ofSeconds(2)).click();
   }
 }
