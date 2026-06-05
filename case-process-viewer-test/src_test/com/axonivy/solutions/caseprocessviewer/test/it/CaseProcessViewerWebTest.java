@@ -50,7 +50,7 @@ public class CaseProcessViewerWebTest extends WebBaseTest {
   @Test
   void testCaseProcessViewerOnTestProcess() {
     startProcessTest();
-    startTask("Task Test");
+    startTaskAfterSeconds("Task Test", 5);
     switchToCaseProcessViewerFrame();
     $(TASK_START_ELEMENT_ID).shouldBe(visible).shouldHave(cssClass(PASSED_CSS_CLASS));
     $(USER_TASK_ELEMENT_ID).shouldBe(visible).shouldHave(cssClass(ACTIVE_CSS_CLASS));
@@ -59,7 +59,7 @@ public class CaseProcessViewerWebTest extends WebBaseTest {
   @Test
   void testCaseProcessViewerOnDemoProcess() {
     startProcessDemo();
-    startTask("Purchase Request");
+    startTaskAfterSeconds("Purchase Request", 5);
     switchToCaseProcessViewerFrame();
     $(DEMO_FIRST_TASK_START_ELEMENT_ID).shouldBe(visible, Duration.ofSeconds(2)).shouldHave(cssClass(PASSED_CSS_CLASS));
     $(DEMO_FIRST_CIRCLE_IN_FIRST_PATH).shouldBe(visible);
@@ -70,13 +70,13 @@ public class CaseProcessViewerWebTest extends WebBaseTest {
     $(DEMO_PRODUCT_QUANTITY_INPUT_ID).shouldBe(visible).shouldBe(enabled).type(TEST_DATA);
     $(DEMO_SUBMIT_ELEMENT_ID).shouldBe(visible).shouldBe(enabled).click();
     $(DEMO_PROCEED_ELEMENT_ID).shouldBe(visible, Duration.ofSeconds(2)).shouldBe(enabled).click();
-    startTask("Purchasing Department Approval");
+    startTaskAfterSeconds("Purchasing Department Approval", 5);
     $(DEMO_PROCEED_ELEMENT_ID).shouldBe(visible, Duration.ofSeconds(2)).shouldBe(enabled).click();
-    startTask("Accounting Approval");
+    startTaskAfterSeconds("Accounting Approval", 5);
     $(DEMO_PROCEED_ELEMENT_ID).shouldBe(visible, Duration.ofSeconds(2)).shouldBe(enabled).click();
-    startTask("Payment");
+    startTaskAfterSeconds("Payment", 10);
     $(DEMO_PAYMENT_ELEMENT_ID).shouldBe(visible, Duration.ofSeconds(2)).shouldBe(enabled).click();
-    startTask("Summary");
+    startTaskAfterSeconds("Summary", 5);
     switchToCaseProcessViewerFrame();
     $(FIT_TO_SCREEN_BUTTON_ID).shouldBe(visible, Duration.ofSeconds(2)).shouldBe(enabled).click();
     $(DEMO_FIRST_USER_DIALOG_ELEMENT_ID).shouldBe(visible, Duration.ofSeconds(2))
@@ -87,8 +87,8 @@ public class CaseProcessViewerWebTest extends WebBaseTest {
   }
 
   @Override
-  protected void startTask(String taskName) {
-    super.startTask(taskName);
+  protected void startTaskAfterSeconds(String taskName, int seconds) {
+    super.startTaskAfterSeconds(taskName, seconds);
     $("span#iFrameForm\\:frameTaskName").shouldBe(visible).shouldHave(text(taskName));
     switchToTaskFrame();
     $("#content").shouldBe(visible, Duration.ofSeconds(2))

@@ -37,10 +37,10 @@ public class WebBaseTest {
     $("#loginForm\\:login").shouldBe(enabled).click();
   }
 
-  protected void startTask(String taskName) {
+  protected void startTaskAfterSeconds(String taskName, int seconds) {
     openTasksPage();
-    $("#tasksForm\\:tasks_data").$$("tr td span").findBy(exactText(taskName)).shouldBe(visible, Duration.ofSeconds(5))
-        .shouldBe(enabled, Duration.ofSeconds(2)).click();
+    $("#tasksForm\\:tasks_data").$$("tr td span").findBy(exactText(taskName))
+        .shouldBe(visible, Duration.ofSeconds(seconds)).shouldBe(enabled, Duration.ofSeconds(2)).click();
     $("#actionMenuForm\\:taskStartBtn").shouldBe(enabled, Duration.ofSeconds(2))
         .shouldBe(enabled, Duration.ofSeconds(2)).click();
   }
