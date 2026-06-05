@@ -142,7 +142,7 @@
         <executions>
           <execution>
             <id>selenium.web.tests</id>
-            <phase>test</phase>
+            <phase>integration-test</phase>
             <goals>
               <goal>test</goal>
             </goals>

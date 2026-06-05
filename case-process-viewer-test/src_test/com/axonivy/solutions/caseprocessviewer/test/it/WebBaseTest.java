@@ -2,7 +2,7 @@ package com.axonivy.solutions.caseprocessviewer.test.it;
 
 import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -39,7 +39,7 @@ public class WebBaseTest {
 
   protected void startTask(String taskName) {
     openTasksPage();
-    $("#tasksForm\\:tasks_data").$$("tr td span").findBy(text(taskName)).shouldBe(visible, Duration.ofSeconds(2))
+    $("#tasksForm\\:tasks_data").$$("tr td span").findBy(exactText(taskName)).shouldBe(visible, Duration.ofSeconds(2))
         .shouldBe(enabled, Duration.ofSeconds(2)).click();
     $("#actionMenuForm\\:taskStartBtn").shouldBe(enabled, Duration.ofSeconds(2))
         .shouldBe(enabled, Duration.ofSeconds(2)).click();

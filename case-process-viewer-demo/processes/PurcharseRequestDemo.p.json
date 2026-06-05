@@ -568,6 +568,7 @@
           "name" : "View Purchase Request",
           "config" : {
             "task" : {
+              "name" : "<%=ivy.cms.co(\"/Processes/Process/PurcharseRequestDemo/Tasks/ReviewPurchaseRequest/name\")%>",
               "skipTasklist" : true
             }
           },

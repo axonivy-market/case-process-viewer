@@ -77,8 +77,6 @@ public class CaseProcessViewerWebTest extends WebBaseTest {
     startTask("Payment");
     $(DEMO_PAYMENT_ELEMENT_ID).shouldBe(visible, Duration.ofSeconds(2)).shouldBe(enabled).click();
     startTask("Summary");
-    $("#content").shouldBe(visible, Duration.ofSeconds(2))
-        .scrollIntoView(ScrollIntoViewOptions.instant().block(Block.end));
     switchToCaseProcessViewerFrame();
     $(FIT_TO_SCREEN_BUTTON_ID).shouldBe(visible, Duration.ofSeconds(2)).shouldBe(enabled).click();
     $(DEMO_FIRST_USER_DIALOG_ELEMENT_ID).shouldBe(visible, Duration.ofSeconds(2))
@@ -93,6 +91,8 @@ public class CaseProcessViewerWebTest extends WebBaseTest {
     super.startTask(taskName);
     $("span#iFrameForm\\:frameTaskName").shouldBe(visible).shouldHave(text(taskName));
     switchToTaskFrame();
+    $("#content").shouldBe(visible, Duration.ofSeconds(2))
+        .scrollIntoView(ScrollIntoViewOptions.instant().block(Block.end));
   }
 
   private void switchToTaskFrame() {
