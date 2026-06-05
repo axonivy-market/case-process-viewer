@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.axonivy.ivy.api</groupId>
@@ -10,11 +12,11 @@
   <groupId>com.axonivy.solutions.caseprocessviewer</groupId>
   <artifactId>case-process-viewer-test</artifactId>
   <version>13.2.2-SNAPSHOT</version>
-  <packaging>iar-integration-test</packaging>
+  <packaging>iar</packaging>
   <dependencies>
     <dependency>
       <groupId>com.axonivy.solutions.caseprocessviewer</groupId>
-      <artifactId>case-process-viewer</artifactId>
+      <artifactId>case-process-viewer-demo</artifactId>
       <version>${project.version}</version>
       <type>iar</type>
     </dependency>
@@ -72,6 +74,64 @@
         <groupId>com.axonivy.ivy.ci</groupId>
         <artifactId>project-build-plugin</artifactId>
         <extensions>true</extensions>
+        <executions>
+          <execution>
+            <id>start.test.engine</id>
+            <phase>process-test-classes</phase>
+            <goals>
+              <goal>start-test-engine</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>package.iar.test</id>
+            <phase>process-test-classes</phase>
+            <goals>
+              <goal>pack-iar</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>deploy.case.process.viewer</id>
+            <phase>process-test-classes</phase>
+            <goals>
+              <goal>deploy-to-engine</goal>
+            </goals>
+            <configuration>
+              <deployFile>../case-process-viewer/target/case-process-viewer-${project.version}.iar</deployFile>
+              <deployToEngineApplication>caseprocessviewertest</deployToEngineApplication>
+            </configuration>
+          </execution>
+          <execution>
+            <id>deploy.case.process.viewer.demo</id>
+            <phase>process-test-classes</phase>
+            <goals>
+              <goal>deploy-to-engine</goal>
+            </goals>
+            <configuration>
+              <deployFile>
+                ../case-process-viewer-demo/target/case-process-viewer-demo-${project.version}.iar</deployFile>
+              <deployToEngineApplication>caseprocessviewertest</deployToEngineApplication>
+            </configuration>
+          </execution>
+          <execution>
+            <id>deploy.case.process.viewer.test</id>
+            <phase>process-test-classes</phase>
+            <goals>
+              <goal>deploy-to-engine</goal>
+            </goals>
+            <configuration>
+              <deployFile>
+                ../case-process-viewer-test/target/case-process-viewer-test-${project.version}.iar</deployFile>
+              <deployToEngineApplication>caseprocessviewertest</deployToEngineApplication>
+            </configuration>
+          </execution>
+          <execution>
+            <id>stop.test.engine</id>
+            <phase>post-integration-test</phase>
+            <goals>
+              <goal>stop-test-engine</goal>
+            </goals>
+          </execution>
+        </executions>
         <configuration>
           <encoding>UTF-8</encoding>
           <compilerWarnings>false</compilerWarnings>
@@ -79,18 +139,11 @@
       </plugin>
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>3.0.0-M4</version>
         <executions>
+          
           <execution>
-            <id>default-test</id>
+            <id>tests</id>
             <phase>test</phase>
-            <configuration>
-              <skip>true</skip>
-            </configuration>
-          </execution>
-          <execution>
-            <id>selenium.web.tests</id>
-            <phase>integration-test</phase>
             <goals>
               <goal>test</goal>
             </goals>
