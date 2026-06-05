@@ -69,7 +69,7 @@ public class CaseProcessViewerWebTest extends WebBaseTest {
     $(DEMO_PRODUCT_PRICE_INPUT_ID).shouldBe(visible).shouldBe(enabled).type(TEST_DATA);
     $(DEMO_PRODUCT_QUANTITY_INPUT_ID).shouldBe(visible).shouldBe(enabled).type(TEST_DATA);
     $(DEMO_SUBMIT_ELEMENT_ID).shouldBe(visible).shouldBe(enabled).click();
-    $(DEMO_PROCEED_ELEMENT_ID).shouldBe(visible).shouldBe(enabled).click();
+    $(DEMO_PROCEED_ELEMENT_ID).shouldBe(visible, Duration.ofSeconds(2)).shouldBe(enabled).click();
     startTask("Purchasing Department Approval");
     $(DEMO_PROCEED_ELEMENT_ID).shouldBe(visible, Duration.ofSeconds(2)).shouldBe(enabled).click();
     startTask("Accounting Approval");
