@@ -5,6 +5,7 @@ import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.sleep;
 
 import java.time.Duration;
 
@@ -37,10 +38,11 @@ public class WebBaseTest {
     $("#loginForm\\:login").shouldBe(enabled).click();
   }
 
-  protected void startTaskAfterSeconds(String taskName, int seconds) {
+  protected void startTask(String taskName) {
+    sleep(2000);
     openTasksPage();
     $("#tasksForm\\:tasks_data").$$("tr td span").findBy(exactText(taskName))
-        .shouldBe(visible, Duration.ofSeconds(seconds)).shouldBe(enabled, Duration.ofSeconds(2)).click();
+        .shouldBe(visible, Duration.ofSeconds(5)).shouldBe(enabled, Duration.ofSeconds(2)).click();
     $("#actionMenuForm\\:taskStartBtn").shouldBe(enabled, Duration.ofSeconds(2))
         .shouldBe(enabled, Duration.ofSeconds(2)).click();
   }
