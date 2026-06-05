@@ -140,9 +140,8 @@
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
         <executions>
-          
           <execution>
-            <id>tests</id>
+            <id>selenium.web.tests</id>
             <phase>test</phase>
             <goals>
               <goal>test</goal>
