@@ -101,7 +101,7 @@ public class PassedStatusNodeResolver {
 
     List<SequenceFlow> outGoingFlows = taskProcessElement.getOutgoing();
     if (ProcessUtils.isTaskSwitchGatewayInstance(taskProcessElement)) {
-      outGoingFlows = detectOutGoingCreatedTaskFromTaskGetaway(task.getRequestPath(), taskProcessElement);
+      outGoingFlows = detectOutGoingCreatedTaskFromTaskGateway(task.getRequestPath(), taskProcessElement);
     }
     // Loops all out going follow to collect the node id
     outGoingFlows.forEach(out -> {
@@ -308,9 +308,9 @@ public class PassedStatusNodeResolver {
         .findAny().orElse(null);
   }
 
-  private static List<SequenceFlow> detectOutGoingCreatedTaskFromTaskGetaway(String taskRequestPath,
+  private static List<SequenceFlow> detectOutGoingCreatedTaskFromTaskGateway(String taskRequestPath,
       ProcessElement processElement) {
-    List<SequenceFlow> outGoingFlows = processElement.getOutgoing();
+    List<SequenceFlow> outGoingFlows = new ArrayList<>(processElement.getOutgoing());
     var processElementIdPrefix = PIDUtils.getId(processElement.getPid()).concat(SLASH);
     for (var out : processElement.getOutgoing()) {
       String endCondition = out.getCondition();

@@ -37,6 +37,8 @@ Processes:
           name: Kaufanforderung
         PurchasingDepartmentApproval:
           name: Genehmigung durch die Einkaufsabteilung
+        ReviewPurchaseRequest:
+          name: Kaufanfrage prüfen
         Summary:
           name: Zusammenfassung
       description: Demoprojekt für den Caseanalyser

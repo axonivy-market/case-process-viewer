@@ -37,6 +37,8 @@ Processes:
           name: Purchase Request
         PurchasingDepartmentApproval:
           name: Purchasing Department Approval
+        ReviewPurchaseRequest:
+          name: Review Purchase Request
         Summary:
           name: Summary
       description: Demo project for case process viewer
