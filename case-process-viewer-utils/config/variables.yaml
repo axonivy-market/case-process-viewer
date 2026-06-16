@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=https://json-schema.axonivy.com/app/12.0.0/variables.json
+Variables:
+  com:
+    axonivy:
+      utils:
+        caseProcessViewer:
+          # Color used for arrows that have been run through
+          passedColor: ""
+          # Color used to highlight the currently active process element
+          activeColor: ""
+          # Background color used for frequency label
+          frequencyColor: ""
+          # Text color used for frequency values
+          frequencyTextColor: ""
