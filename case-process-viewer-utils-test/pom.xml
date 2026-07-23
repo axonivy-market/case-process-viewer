@@ -107,7 +107,7 @@
             <configuration>
               <deployFile>
                 ../case-process-viewer-utils-demo/target/case-process-viewer-utils-demo-${project.version}.iar</deployFile>
-              <deployToEngineApplication>caseprocessviewerutilsdemotest</deployToEngineApplication>
+              <deployToEngineApplication>caseprocessviewerutilstest</deployToEngineApplication>
             </configuration>
           </execution>
           <execution>
