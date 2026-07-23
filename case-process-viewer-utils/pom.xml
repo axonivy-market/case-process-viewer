@@ -9,7 +9,7 @@
   </parent>
   <groupId>com.axonivy.utils.caseprocessviewer</groupId>
   <artifactId>case-process-viewer-utils</artifactId>
-  <version>13.2.3</version>
+  <version>13.2.4-SNAPSHOT</version>
   <packaging>iar</packaging>
   <dependencies>
     <dependency>
