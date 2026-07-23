@@ -95,7 +95,7 @@
             </goals>
             <configuration>
               <deployFile>../case-process-viewer-utils/target/case-process-viewer-utils-${project.version}.iar</deployFile>
-              <deployToEngineApplication>caseprocessviewertest</deployToEngineApplication>
+              <deployToEngineApplication>caseprocessviewerutilstest</deployToEngineApplication>
             </configuration>
           </execution>
           <execution>
@@ -107,7 +107,7 @@
             <configuration>
               <deployFile>
                 ../case-process-viewer-utils-demo/target/case-process-viewer-utils-demo-${project.version}.iar</deployFile>
-              <deployToEngineApplication>caseprocessviewertest</deployToEngineApplication>
+              <deployToEngineApplication>caseprocessviewerutilsdemotest</deployToEngineApplication>
             </configuration>
           </execution>
           <execution>
@@ -119,7 +119,7 @@
             <configuration>
               <deployFile>
                 ../case-process-viewer-utils-test/target/case-process-viewer-utils-test-${project.version}.iar</deployFile>
-              <deployToEngineApplication>caseprocessviewertest</deployToEngineApplication>
+              <deployToEngineApplication>caseprocessviewerutilstest</deployToEngineApplication>
             </configuration>
           </execution>
           <execution>
@@ -148,7 +148,7 @@
         </executions>
         <configuration>
           <argLine>-Dtest.engine.url=${test.engine.url}
-            -Dtest.engine.app=caseprocessviewertest</argLine>
+            -Dtest.engine.app=caseprocessviewerutilstest</argLine>
         </configuration>
       </plugin>
     </plugins>
